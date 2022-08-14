@@ -6,7 +6,6 @@ namespace Lesson1
 {
     class Syntax
     {
-
         public static void Main(string[] args)
         {
 
@@ -59,7 +58,7 @@ namespace Lesson1
 
             //тринарний логічний оператор
             var logicalResult =
-                isTrue ? tryTrenary() : false;
+                isTrue ? Syntax.TryTrenary() : false;
 
             Console.WriteLine(logicalResult);
             //Console.Beep();
@@ -118,7 +117,6 @@ namespace Lesson1
             };
 
 
-
             //foreach
             intArray2 = intArray;
             intArray[0] = 8;
@@ -126,7 +124,10 @@ namespace Lesson1
             foreach (var iterator in intArray2) //проходимось циклом по кожному значенню з масиву
             {
                 Console.WriteLine($"List value {iterator}");  //приклад інтерполяції строки
+               
+                Console.WriteLine("List value" + iterator);  //приклад 
             }
+
 
             for (int x = 0; x <= 2; x++) //проходимось циклом for по кожному значенню з масиву
             {
@@ -191,8 +192,7 @@ namespace Lesson1
             Console.WriteLine(Days.Monday);
             Console.WriteLine((int)Days.Wednesday);
 
-
-            //System.
+            System.
             // клас System.DateTime передбачачє методи для роботи з датою та часом
             DateTime currentDay = DateTime.Today;
 
@@ -200,13 +200,21 @@ namespace Lesson1
         }
 
         #region Methods
-        //оголошення статичного методу tryTrenary()
+        //оголошення СТАТИЧНОГО методу tryTrenary()
         //статичні методи належать класу а не об'єкту, для роботи зі статичними методами не потрібно створювати об'єкт
-        public static bool tryTrenary()
+        public static bool TryTrenary()
         {
             Console.WriteLine("Test breakpoins");
             return true;
         }
+
+        //НЕ СТАТИЧНИЙ метод, який не повертає даних 
+        //метод не може бути викликаний без ініціалізації об'єкту
+        public void TryVoid(int someParameter = 0) //*Студія підсвічує невірний 
+        {
+            Console.WriteLine("tryVoid method");
+        }
+
         #endregion Methods
 
 
