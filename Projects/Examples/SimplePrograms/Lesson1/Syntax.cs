@@ -6,19 +6,10 @@ namespace Lesson1
 {
     class Syntax
     {
-
-
-        //оголошення статичного методу tryTrenary()
-        //статичні методи належать класу а не об'єкту, для роботи зі статичними методами не потрібно створювати об'єкт
-        public static bool tryTrenary()
-        {
-            Console.WriteLine("Test breakpoins");
-            return true;
-        }
-
-
         public static void Main(string[] args)
         {
+
+            #region//Примітивні типи даних
             float floatExample = 1.3f;
 
             var caracterVariable = 'C';
@@ -26,37 +17,18 @@ namespace Lesson1
             bool isTrue = false;
 
 
-            var a = 1;
+            int a = 1;
             int b = 2;
 
             a = b;
+            Console.WriteLine("Primitive type example: a = " + a);
 
-
-            var result = a + b;
-            a++;
-            a += 23;
-            a -= 34;
-
-            result = a % b;
-
-            isTrue = a <= b;
-            isTrue = a == b;
-
-            //тринарний логічний оператор
-            var logicalResult =
-                isTrue ? tryTrenary() : false;
-
-            Console.WriteLine(logicalResult);
-            //Console.Beep();
-
-            //Бажано використовувати var - компілятор сам визначить і встановить необхідний тип даних для змінної
+            //Бажано використовувати var (неявний тип) - компілятор сам визначить і встановить необхідний тип даних для змінної
             var variableExample = "45567";
 
+            #endregion
 
-            DateTime currentDay = DateTime.Today;
-
-
-            //Масиви
+            #region//Масиви
             int[] intArray, intArray2;
 
             DateTime[] intArray3;
@@ -71,8 +43,29 @@ namespace Lesson1
                                                  { { 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 } },
                                                  { { 0, 1, 2 }, { 0, 1, 2 }, { 1, 1, 2 } },
                                                  { { 7, 8, 9 }, { 7, 8, 9 }, { 7, 8, 9 } } };
+            #endregion
 
-            //Оператори вітвлень 
+            #region//Оператори
+            var result = a + b;
+            a++;
+            a += 23;
+            a -= 34;
+
+            result = a % b;
+
+            isTrue = a <= b;
+            isTrue = a == b;
+
+            //тринарний логічний оператор
+            var logicalResult =
+                isTrue ? Syntax.TryTrenary() : false;
+
+            Console.WriteLine(logicalResult);
+            //Console.Beep();
+            #endregion
+
+            #region//Оператори вітвлень 
+
             isTrue = true;
             if (isTrue)
             {
@@ -111,8 +104,9 @@ namespace Lesson1
                     // goto case "1"; return або throw;
             }
 
+            #endregion
 
-            //цикли
+            #region//Цикли
             //for
             for (int x = 0; x <= 3; x++)
             {
@@ -123,7 +117,6 @@ namespace Lesson1
             };
 
 
-
             //foreach
             intArray2 = intArray;
             intArray[0] = 8;
@@ -131,7 +124,10 @@ namespace Lesson1
             foreach (var iterator in intArray2) //проходимось циклом по кожному значенню з масиву
             {
                 Console.WriteLine($"List value {iterator}");  //приклад інтерполяції строки
+               
+                Console.WriteLine("List value" + iterator);  //приклад 
             }
+
 
             for (int x = 0; x <= 2; x++) //проходимось циклом for по кожному значенню з масиву
             {
@@ -168,9 +164,9 @@ namespace Lesson1
                 Console.WriteLine($"Do while Iteration # {i}");
                 i--;
             } while (i >= 1);
+            #endregion
 
-
-            //НЕПРИМІТИВНІ типи даних (типи даниз за посиланням)
+            #region//НЕПРИМІТИВНІ типи даних (типи даних за посиланням)
 
             //string - строкові дані
             string stringExample = "Simple string";
@@ -182,8 +178,6 @@ namespace Lesson1
                                                //оскільки stringExample вже посилається на іншу область пам'яті, яка містить новий текст
             Console.WriteLine(stringExample2);
             Console.Write(stringExample);
-
-
 
             //Tuples - кортежі
             (string, int, double) person = ("Tom", 25, 81.23);
@@ -197,7 +191,31 @@ namespace Lesson1
             //Enums - приклад роботи з перечисленнями
             Console.WriteLine(Days.Monday);
             Console.WriteLine((int)Days.Wednesday);
+
+            System.
+            // клас System.DateTime передбачачє методи для роботи з датою та часом
+            DateTime currentDay = DateTime.Today;
+
+            #endregion
         }
+
+        #region Methods
+        //оголошення СТАТИЧНОГО методу tryTrenary()
+        //статичні методи належать класу а не об'єкту, для роботи зі статичними методами не потрібно створювати об'єкт
+        public static bool TryTrenary()
+        {
+            Console.WriteLine("Test breakpoins");
+            return true;
+        }
+
+        //НЕ СТАТИЧНИЙ метод, який не повертає даних 
+        //метод не може бути викликаний без ініціалізації об'єкту
+        public void TryVoid(int someParameter = 0) //*Студія підсвічує невірний 
+        {
+            Console.WriteLine("tryVoid method");
+        }
+
+        #endregion Methods
 
 
         //Enums - приклад перечислень
