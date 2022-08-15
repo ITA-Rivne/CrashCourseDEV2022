@@ -41,8 +41,8 @@ namespace Task20X
 
         static void Main(string[] args)
         {
-            /*Task 209
-            * Написати overload методи Add які в залежності від параметрів або додають цифрові значення,
+            #region//Task 209
+            /*Написати overload методи Add які в залежності від параметрів або додають цифрові значення,
             * або об'єднують введені тексти. Передбачити аргументи за замовчуванням і використання статичних полів\методів
             * */
             Console.WriteLine("Task 209");
@@ -55,7 +55,9 @@ namespace Task20X
 
             Console.WriteLine("Sum: {0}", result2);
 
-            //Task 210
+            #endregion
+
+            #region//Task 210
             //Написати overload методи RemoveFromString, які приймають текст і видаляють з нього або певний набір символів, 
             //або символ\символи за порядковим номером в тексті. Реалізувати використання аргументів за замовчуванням
 
@@ -70,6 +72,8 @@ namespace Task20X
             Console.WriteLine("Enter string: {0}", inputStr);
             Console.WriteLine("Result string 1: {0}", result3);
             Console.WriteLine("Result string 2: {0}", result4);
+
+            #endregion
 
             Console.ReadKey();
 
