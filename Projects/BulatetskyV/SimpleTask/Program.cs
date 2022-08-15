@@ -45,6 +45,10 @@ namespace SimpleTask
             }
             else Console.WriteLine("So big numeric!");
             Console.ReadKey();
+
+            //Soon to be continued
+        
+        
         }
     }
 }
