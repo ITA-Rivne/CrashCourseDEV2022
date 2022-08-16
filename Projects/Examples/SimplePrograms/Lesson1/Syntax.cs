@@ -210,9 +210,30 @@ namespace Lesson1
 
         //НЕ СТАТИЧНИЙ метод, який не повертає даних 
         //метод не може бути викликаний без ініціалізації об'єкту
-        public void TryVoid(int someParameter = 0) //*Студія підсвічує невірний 
+        public void TryVoid(int someParameter = 0) //*Студія підсвічує помилки та код що не використовується в подальшому
         {
-            Console.WriteLine("tryVoid method");
+            Console.WriteLine("TryVoid method");
+        }
+
+
+        //Приклад Overload (перезавантаженого) методу з однаковим ім'ям але різною сигратурою (ім'я та вхідні параметри)
+        public void TryVoid(int firstParameter, string secondParameter)
+        {
+            Console.WriteLine("Overload method");
+        }
+
+        //Приклад методу з використання параметрів за посиланням - передається не значення змінної, а посилання на саму змінну в пам'яті
+        //після завершення виконання змінна набуває нового значення
+        public int TryReferance(ref int refParameter)
+        {
+            Console.WriteLine($"TryReferance method{refParameter++}");
+            return refParameter;
+        }
+
+        public void TryOutParameter(int a, int b, out int outParameter)
+        {
+            outParameter = a + b;
+            Console.WriteLine($"TryOutParameter method {outParameter}");
         }
 
         #endregion Methods

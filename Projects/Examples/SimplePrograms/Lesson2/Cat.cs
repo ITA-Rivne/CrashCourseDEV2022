@@ -2,9 +2,11 @@
 
 namespace Lesson2
 {
-    // клас Cat наслідується від батьківсього класу Animal - принцип ООП наслідування.
+    // Клас Cat наслідується від батьківсього класу Animal - принцип ООП наслідування.
     // Клас нащадок успадковує від батьківського класу усі (protected + public) поля і методи.
-    public class Cat : Animal
+
+    // ключове слово sealed вказує, що від даного класу заборонено наслідуватись
+    public sealed class Cat : Animal
     {
         public string voise;
 

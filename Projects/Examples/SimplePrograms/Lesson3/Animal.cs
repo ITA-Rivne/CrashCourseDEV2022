@@ -94,6 +94,9 @@ namespace Lesson3
             Console.WriteLine("This animal is live");
         }
 
+        public override string GetName() => "I'm animal";
+
+
         //-------------------------VIRTUAL METHODS-----------------------------------------
         //Кожен клас може сам містити віртуальні методи
         //Віртуальний (virtual) метод - його можна змінювати переписувати (override) у класах нащадках - реалізація принципу ООП поліморфізму

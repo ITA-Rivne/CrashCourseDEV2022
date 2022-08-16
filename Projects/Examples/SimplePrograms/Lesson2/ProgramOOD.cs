@@ -31,6 +31,7 @@ namespace Lesson2
 
             //створення об'єкту типу Animals
             Animal animal1 = new Animal(12, 7, 30);
+
             animal1.Move(2, 4);
             animal1.GetState();
 
