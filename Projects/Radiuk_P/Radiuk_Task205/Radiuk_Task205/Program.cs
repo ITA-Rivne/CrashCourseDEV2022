@@ -13,15 +13,15 @@ namespace Radiuk_Task205
 			int numberInput, numberReversed = 0;
 
 			Console.Write("Enter the number: ");
-			numberInput = Int32.Parse(Console.ReadLine());
+			numberInput = int.Parse(Console.ReadLine());
 
 			while (numberInput != 0)
 			{
-				numberReversed = (numberReversed * 10) + (numberInput % 10);
+                numberReversed = (numberReversed * 10) + (numberInput % 10);
 				numberInput /= 10;
 			}
 
-			Console.WriteLine("The reversed number is {0}.", numberReversed);
+			Console.WriteLine($"The reversed number is {numberReversed}.");
 			Console.ReadLine();
 		}
     }
