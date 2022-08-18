@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Console_207_208_Arrays_Kyryk
 {
@@ -49,6 +47,13 @@ namespace Console_207_208_Arrays_Kyryk
                 //++dict[e];
             }
             return dict;
+        }
+        public static int? EvenAndMin(int[] arr)
+        {
+            var onlyEven = Array.FindAll(arr, e => e % 2 == 0);
+            if (onlyEven.Length == 0)
+                return null;
+            return onlyEven.Min();
         }
     }
 }

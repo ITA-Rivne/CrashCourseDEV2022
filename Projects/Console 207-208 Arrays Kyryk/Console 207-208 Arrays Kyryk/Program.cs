@@ -18,12 +18,25 @@ namespace Console_207_208_Arrays_Kyryk
                 Console.WriteLine($"\t\tElement {key, 4} repeated {result[key], 4} times");
             }
         }
+        //Написати програму, яка знаходить в масиві найменше непарне число і показує його на екран.
+        public static void Task_208()
+        {
+            var arr = ArrayWorker.CreateArray<int>(5);
+            ArrayWorker.Random(arr);
+            Console.WriteLine($"\t\tArray :\n{ArrayWorker.ArrayToString(arr)}\n\n");
+            int? minEven = ArrayWorker.EvenAndMin(arr);
+            if(minEven.HasValue)
+                Console.WriteLine($"Minimum of even is { minEven } ");
+            else
+                Console.WriteLine("Not found any even number  in array");
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Client.Task_207();
+            //Client.Task_207();
+            Client.Task_208();
             
         }
     }
