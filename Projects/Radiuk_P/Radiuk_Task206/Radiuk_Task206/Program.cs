@@ -13,7 +13,7 @@ namespace Radiuk_Task206
 			int numberInput, numberSum = 0;
 
 			Console.Write("Enter the number: ");
-			numberInput = Int32.Parse(Console.ReadLine());
+			numberInput = int.Parse(Console.ReadLine());
 
 			while (numberInput > 0)
 			{
@@ -21,7 +21,7 @@ namespace Radiuk_Task206
 				numberInput /= 10;
 			}
 
-			Console.WriteLine("The sum of digits is: {0}.", numberSum);
+			Console.WriteLine($"The sum of number's digits is: {numberSum}.");
 			Console.ReadLine();
 		}
     }
