@@ -13,15 +13,17 @@ namespace Radiuk_Task201
             // The initialization of variables
             double numberFirst, numberSecond;
 
+            // The input of the first number
             Console.Write("Enter the first number: ");
             numberFirst = double.Parse(Console.ReadLine());
 
+            // The input of the second number
             Console.Write("Enter the second number: ");
             numberSecond = double.Parse(Console.ReadLine());
 
-            // The average of two numebrs
+            // The output of the average of two numbers
             double numberAverage = (numberFirst + numberSecond) / 2;
-            Console.WriteLine("The average numbers is {0}.", numberAverage);
+            Console.WriteLine($"The average numbers is {numberAverage}.");
             Console.ReadLine();
         }
     }
