@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Console_209_210_Kyryk
 {
-    class Worker
+    static class Worker
     {
+        public static string Add(string first = "One", string second = "Two")
+        {
+            return first + "\t"+ second;
+        }
+        public static int Add(int first = 1, int second = 2)
+        {
+            return first + second;
+        }
     }
 }
