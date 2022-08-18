@@ -6,9 +6,6 @@ namespace Lesson3
 {
     interface ICookable<Food>
     {
-       // T GetFood();
-
-    Food GetFood();
-
+        Food GetFood();
     }
 }

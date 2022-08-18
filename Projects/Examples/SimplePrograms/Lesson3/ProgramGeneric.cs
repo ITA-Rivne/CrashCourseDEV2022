@@ -118,6 +118,9 @@ namespace Lesson3
 
             MyGenerics<object>.GenericExample(new object());
 
+
+
+
             //Ініціалізаціє об'єкту з узагальненим типом
             var someRestaurant = new Restaurant<Food>();
 
@@ -145,7 +148,7 @@ namespace Lesson3
             veganRestaurant.MadeFood(new Plants());
             // ....вже не вийде зробити їжу з риби у веганському ресторані оскільки ми 
             // його типізували викликавши як new Restaurant<string>
-            //veganRestaurant.MadeFood(new Fish());   // - цей код з new Fish() вже не спрацює
+        //    veganRestaurant.MadeFood(new Fish());   // - цей код з new Fish() вже не спрацює
 
             #endregion Generics
 
