@@ -8,21 +8,47 @@ namespace Console_207_208_Arrays_Kyryk
 {
     static class ArrayWorker
     {
-        public static void Random(int [] arr, int left = 0, int right = 100)
+        const int DefaultSize = 10;
+        public static T[] CreateArray<T>(int size = DefaultSize)
         {
-             Random rnd = new Random();
+            if (size <= 0)
+                size = DefaultSize;
+            return new T[size];
+        }
+        public static void Random(int[] arr, int left = 0, int right = 100)
+        {
+            Random rnd = new Random();
             if (left > right)
                 Swap(ref left, ref right);
             for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = rnd.Next(left, right);
             }
-            
-        }
 
-        private static void Swap(ref int left, ref int right)
+        }
+        public static string ArrayToString<T>(T[] arr)
         {
-            throw new NotImplementedException();
+            return String.Join<T>(", ", arr);
+        }
+        private static void Swap<T>(ref T first, ref T second)
+        {
+            T tmp = first;
+            first = second;
+            second = tmp;
+        }
+        public static Dictionary<T, int> RepeatingInArray<T>(T[] arr)
+        {
+            Dictionary<T, int> dict = new Dictionary<T, int>();
+            foreach (T e in arr)
+            {
+
+                if (dict.ContainsKey(e))
+                    ++dict[e];
+                else
+                    dict[e] = 1;
+                //++dict[e];
+            }
+            return dict;
         }
     }
 }
