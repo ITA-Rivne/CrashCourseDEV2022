@@ -24,26 +24,32 @@ namespace Fairytale
             this.defeatedPersons = new List<string>();
             this.speed = new Random().Next(1, 10);
 
-            Console.WriteLine("Hello! I'm Kolobok");
-            Console.WriteLine($"My cunning = {this.cunning}; My speed = {this.speed} \n");
+            Console.WriteLine("Привіт! Я Колобок");
+            Console.WriteLine($"Моя хитрість = {this.cunning}; Моя швидкість = {this.speed} \n");
         }
 
-        public string RunAway(string person)
+        public Kolobok RunAway(string person)
         {
-            this.defeatedPersons.Add(person);
-            return "Goodbye!";
+            //TODO: add NameConverter()
+            if (person.EndsWith("а"))
+                this.defeatedPersons.Add(person.Remove(person.Length - 1, 1) + "и");
+            else
+                this.defeatedPersons.Add(person + "a");
+
+
+            Console.WriteLine($"Щасливо, {person}!\n");
+            return this;
         }
 
         public string SingSong()
         {
-           // var song = "Я Колобок, Колобок! я по коробу метений, я на яйцях спечений. ";
-            var song = "Please, don't eat me. I will sign you my song! \n My song1 ";
+            var song = "Не їж мене, я тобі пісеньку заспіваю! \nЯ Колобок, Колобок! Я по коробу метений, я на яйцях спечений. ";
+
             foreach (var person in defeatedPersons)
             {
-                //song += $"Я від {person} утік! ";
-                song += $"I've run away from {person}! ";
+                song += $"Я від {person} утік! ";
             }
-            song += "And will go away from you! \n";
+            song += "І від тебе втечу!";
             return song;
         }
     }

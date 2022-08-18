@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fairytale
 {
-    class Animal
+    public class Animal
     {
         public string name;
         public int cunning;
@@ -23,31 +23,31 @@ namespace Fairytale
             //задаємо кмітливість
             this.cunning = random.Next(1, 10)* cunningIndex;
 
-            Console.WriteLine($"Hello! I'm {this.name}");
-            Console.WriteLine($"My cunning = {this.cunning}; My speed = {this.speed} \n");
+            Console.WriteLine($"Привіт! Я {this.name}");
+            Console.WriteLine($"Моя хитрість = {this.cunning}; Моя швидкість = {this.speed} \n");
         }
 
         public Kolobok CookKolobok() => new Kolobok();
 
-        public void Eat(ref Kolobok kolobok)
+        public Kolobok Eat(ref Kolobok kolobok)
         {
-                //Console.WriteLine("Колобок, колобок, я тебе з'їм!");
-                Console.WriteLine("Kolobok, Kolobok, I will eat you!");
+            Console.WriteLine("Колобок, колобок, я тебе з'їм!");
 
                 Console.WriteLine(kolobok.SingSong());
 
                 if (this.cunning > kolobok.cunning && this.speed > kolobok.speed)
                 {
-                    //Console.WriteLine("Смачний був колобок!");
-                    Console.WriteLine("It was tasty!");
+                var message = this.cunning > kolobok.cunning ? "Ти був не надто хитрий!" : "Ти був дуже повільний!";
+                    Console.WriteLine("Смачний був колобок!");
                     kolobok = null;
-                    throw new Exception("Kolobok is dead :((");
+                    throw new Exception("Колобка з'їли :((");
                 }
                 else
                 {
                     kolobok.RunAway(this.name);
                 }
-        }
 
+            return kolobok;
+        }
     }
 }

@@ -23,12 +23,12 @@ namespace Fairytale
             //задаємо кмітливість
             this.cunning = new Random().Next(1, 10);
 
-            Console.WriteLine($"Hello! I'm {this.name}");
+            Console.WriteLine($"Привіт! Я {this.name}");
         }
 
         public Kolobok CookKolobok() {
 
-            Console.WriteLine("\nGrandma baked Kolobok!");
+            Console.WriteLine("\nСпекла баба колобка");
             return new Kolobok();
         }
         
@@ -37,9 +37,9 @@ namespace Fairytale
         {
             if (this.cunning > kolobok.cunning && kolobok.temperature < 35)
             {
-                Console.WriteLine("It was tasty!");
+                Console.WriteLine("Смачний був колобок");
                 kolobok = null;
-                throw new Exception("Kolobok is dead :((");
+                throw new Exception("Колобка з'їли :((");
             }
             else
             {

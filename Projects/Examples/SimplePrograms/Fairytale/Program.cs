@@ -10,8 +10,8 @@ namespace Fairytale
     {
         static void Main(string[] args)
         {
-            //Казка колобок
-            Console.WriteLine("Fairytale KOLOBOK \n");
+            Console.OutputEncoding = Encoding.UTF8; //встановлюємо кодування для виводу кирилиці в консоль
+            Console.WriteLine("Казка КОЛОБОК \n");
             try
             {
                 #region 1. Баба і дід печуть колобка
@@ -25,8 +25,8 @@ namespace Fairytale
                 // колобок вміє співати пісню, утікати = два методи
                 // поля - температура, хитрість, швидкість
                 #region Realization
-                var did = new Person("Did");
-                var baba = new Person("Baba");
+                var did = new Person("Дід");
+                var baba = new Person("Баба");
 
                 var kolobok = baba.CookKolobok();
 
@@ -50,7 +50,7 @@ namespace Fairytale
                 // має бути поле хитрість і можна ще швидкість
                 //б) об'єкт колобок передаємо параметром для rabbit.Eat(myKolobok)
 
-                var rabbit = new Animal("Rabbit");
+                var rabbit = new Rabbit("Зайчик");
                 rabbit.Eat(ref kolobok);
 
                 #endregion
@@ -58,7 +58,7 @@ namespace Fairytale
                 #region 4. Колобок тікає від вовка
                 //a) об'єкт колобок передаємо параметром для volf.Eat(myKolobok)
 
-                var volf = new Animal("Volf", 2);
+                var volf = new Volf("Вовк");
                 volf.Eat(ref kolobok);
 
                 #endregion
@@ -66,14 +66,14 @@ namespace Fairytale
                 #region 5. колобок тікає від ведмедя
                 //a) об'єкт колобок передаємо параметром для bear.Eat(myKolobok)
 
-                var bear = new Animal("Bear");
+                var bear = new Bear("Ведмідь");
                 bear.Eat(ref kolobok);
 
                 #endregion
 
                 #region 6. колобок тікає від лисиці (якщо він хитріший - гру виграно\казку завершено)
                 //a) об'єкт колобок передаємо параметром для fox.Eat(myKolobok)
-                var fox = new Animal("Fox", 2);
+                var fox = new Fox("Лисиця", 2);
                 fox.Eat(ref kolobok);
                 #endregion
 
@@ -83,14 +83,14 @@ namespace Fairytale
                 ///     усі можуть говорити - можемо зробити інтерфейс ITalkable
                 #endregion
 
-                if (kolobok != null) Console.WriteLine("Kolobok is alive!!!");
+                if (kolobok != null) Console.WriteLine("Колобок живий!!!");
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            Console.WriteLine("The end");
+            Console.WriteLine("Кінець казки!");
 
             Console.ReadLine();
         }
