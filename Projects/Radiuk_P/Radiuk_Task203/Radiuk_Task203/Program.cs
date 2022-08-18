@@ -14,11 +14,11 @@ namespace Radiuk_Task203
 			Console.WriteLine("Check whether a number is even or odd.");
 			Console.WriteLine("---------------------------------------");
 			Console.Write("Enter the number: ");
-			double numberInput = Double.Parse(Console.ReadLine());
+			int numberInput = Int32.Parse(Console.ReadLine());
 			if (numberInput % 2 == 0)
-				Console.WriteLine("'{0}' is an even number.", numberInput);
+				Console.WriteLine($"'{numberInput}' is an even number.");
 			else
-				Console.WriteLine("'{0}' is an odd number.", numberInput);
+				Console.WriteLine($"'{numberInput}' is an odd number.");
 			Console.ReadLine();
 		}
 	}
