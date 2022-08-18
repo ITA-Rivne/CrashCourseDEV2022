@@ -10,7 +10,7 @@ namespace Radiuk_Task207
     {
         static void Main(string[] args)
         {
-			int[] arrayInput = { 5, 7, -5, 0, -5, 3, 0, -7, 0 };
+			int[] arrayInput = {1000, 1, 1, 1, 2, 2, -3, 0, 9, -10, 11, 8, 9};
 
 			var myDictionary = new Dictionary<int, int>();
 
@@ -30,7 +30,7 @@ namespace Radiuk_Task207
 			{
 				if (valueTemp.Value > 1)
 				{
-					Console.WriteLine("Duplicate {0} occured {1} times.", valueTemp.Key, valueTemp.Value);
+					Console.WriteLine($"Duplicate {valueTemp.Key} occured {valueTemp.Value} times.");
 				}
 			}
 			Console.ReadLine();
