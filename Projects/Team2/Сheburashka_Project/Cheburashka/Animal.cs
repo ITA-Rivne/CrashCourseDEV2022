@@ -8,15 +8,15 @@ namespace Cheburashka
 {
     public class Animal : IPerson
     {
-        private string _name;
+        private string name;
         public int weight;
         public static Random random = new Random();
 
-        
+                
         public string Name
         {
-            get => _name;
-            set => _name = value;
+            get => name;
+            set => name = value;
         }
        
 
@@ -35,7 +35,7 @@ namespace Cheburashka
 
         public string Say()
         {
-            string s = $"Привіт! Я {this._name}!";
+            string s = $"Привіт! Я {this.name}!";
 
             return s;
 
