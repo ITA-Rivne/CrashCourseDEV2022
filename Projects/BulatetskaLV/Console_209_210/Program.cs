@@ -8,19 +8,27 @@ namespace Console_209_210
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //Написати overload методи Add які в залежності від параметрів або додають цифрові значення,
             //або об'єднують введені тексти. Передбачити аргументи за замовчуванням і використання статичних полів\методів
 
-              string Add(string s1, string s2)
-            {
-                return s1+s2;
-            }
-            string a = "Hello";
-            string b = "World!!";
-            Console.WriteLine(Add(a,b));
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("задайте дві стрічки");
+            string a, b;
+            a=Console.ReadLine();
+            b = Console.ReadLine();
+            Console.WriteLine(Arithmetic.Add(a, b));
+            Console.WriteLine("задайте два числа");
+            int c, d;
+            c = Convert.ToInt32(Console.ReadLine());
+            d = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(Arithmetic.Add(c, d));
+
+            Console.WriteLine("за замовчуванням 5");
+            Console.WriteLine(Arithmetic.Add());
             Console.ReadLine();
+
 
         }
     }
