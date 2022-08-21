@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Console_209_210
 {
-    public static class Arithmetic
+    public class Arithmetic
     {
         public static string Add(string s1, string s2)
         {
@@ -22,5 +22,13 @@ namespace Console_209_210
         {
             return 5;
         }
+
+        public static string RemoveFromString(string s1, string s2)
+        {
+            
+            return s;
+
+        }
+
     }
 }
