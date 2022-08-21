@@ -14,7 +14,7 @@ namespace Cheburashka
             Console.WriteLine("Як Чебурашка і друзі будували будинок \n");
             
             
-           Lion r = new Lion();
+           Lion r = new Lion("Лев");
             r.GetWork("фундамент", 4);
             Console.ReadLine();
 

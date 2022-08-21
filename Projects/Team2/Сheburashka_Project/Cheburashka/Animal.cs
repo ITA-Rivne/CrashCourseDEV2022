@@ -12,7 +12,17 @@ namespace Cheburashka
         public int weight;
         public static Random random = new Random();
 
-                
+        public Animal (string name, int weight)
+        {
+            this.name = name;
+            this.weight = weight;
+        }
+        public Animal (string name)
+        {
+            this.name = name;
+            this.weight = random.Next(1, 10);
+        }
+
         public string Name
         {
             get => name;
