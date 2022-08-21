@@ -27,8 +27,7 @@ namespace Console_209_210
             Console.WriteLine(Arithmetic.Add(c, d));
             Console.WriteLine("за замовчуванням 5");
             Console.WriteLine(Arithmetic.Add());
-            Console.ReadLine();
-
+            
             //Написати overload методи RemoveFromString, які приймають текст і видаляють з нього або певний набір символів,
             //або символ\символи за порядковим номером в тексті. Реалізувати використання аргументів за замовчуванням
             Console.WriteLine("210");
