@@ -32,12 +32,22 @@ namespace Cheburashka
 
         public void GetWork(string work, int count)
         {
-            throw new NotImplementedException();
+            if (count <= weight)
+            {
+                string a = Say() + $"Я виконую роботу {work} і несу цеглу кількістю {count}";
+                Console.WriteLine(a);
+            }
+            else
+                Console.WriteLine(Say() + $"Я не можу підняти цеглин кількістю {count}, максимум можу підняти кількість цеглин {weight} ");
+
         }
 
         public string Say()
         {
-            throw new NotImplementedException();
+            string s = $"Привіт! Я {this._name}!";
+
+            return s;
+
         }
     }
 }
