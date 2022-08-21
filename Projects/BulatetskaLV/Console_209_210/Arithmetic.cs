@@ -25,10 +25,27 @@ namespace Console_209_210
 
         public static string RemoveFromString(string s1, string s2)
         {
-            
+            string s;
+            s = s1;                   
+            s = s1.Replace(s2, "");           
             return s;
-
         }
 
+        public static string RemoveFromString(string s1, int a)
+        {
+            string s;
+            s = s1;
+          s = s.Remove(a, 1);
+            return s;
+        }
+
+        public static string RemoveFromString(string s1)
+        {
+            string s;
+            s = s1;
+            s = s.Remove(4, 1);
+            return s;
+        }
+        
     }
 }
