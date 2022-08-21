@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cheburashka
 {
-    class Man : IPerson, IToy
+    class Man : IPerson
     {
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
