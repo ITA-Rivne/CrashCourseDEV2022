@@ -10,6 +10,9 @@ namespace Cheburashka
     {
         private string name;
         public int weight;
+        public int count;
+        public string work;
+
         public static Random random = new Random();
 
         public Animal (string name, int weight)
@@ -28,26 +31,33 @@ namespace Cheburashka
             get => name;
             set => name = value;
         }
-       
 
-        public void GetWork(string work, int count)
+
+        public int GetWork(string work, int count)
         {
+            this.work = work;
+            int a;
             if (count <= weight)
             {
-                string a = Say() + $"Я виконую роботу {work} і несу цеглу кількістю {count}";
-                Console.WriteLine(a);
+                a = count;
             }
             else
-                Console.WriteLine(Say() + $"Я не можу підняти цеглин кількістю {count}, максимум можу підняти кількість цеглин {weight} ");
-
-
+            {
+                a = 0;
+            }
+            this.count = a;
+            return a;
         }
 
-        public string Say()
-        {
-            string s = $"Привіт! Я {this.name}!";
 
-            return s;
+        public void Say()
+        {
+            string s = $"Привіт! Я { this.name}!";
+            if (this.count != 0)
+            { s =  s + $"Я виконую роботу {this.work} і несу цеглу кількістю {this.count} "; }
+            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількість цеглин {this.weight} "; }
+            Console.WriteLine(s);
+
 
         }
     }

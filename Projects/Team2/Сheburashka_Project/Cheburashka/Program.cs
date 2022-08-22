@@ -15,10 +15,13 @@ namespace Cheburashka
             
             
            Lion r = new Lion("Лев");
-            r.GetWork("фундамент", 4);
-            Console.ReadLine();
+            int a;
+            a = r.GetWork("фундамент", 6);
+            Console.WriteLine(a);
+            r.Say();
 
-           
+            Console.ReadLine();
+                     
 
 
         }
