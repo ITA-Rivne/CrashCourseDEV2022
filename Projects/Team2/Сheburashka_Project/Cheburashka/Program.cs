@@ -12,7 +12,15 @@ namespace Cheburashka
         {
             Console.OutputEncoding = Encoding.UTF8; //встановлюємо кодування для виводу кирилиці в консоль
             Console.WriteLine("Як Чебурашка і друзі будували будинок \n");
+            
+            
+           Lion r = new Lion("Лев");
+            r.GetWork("фундамент", 4);
             Console.ReadLine();
+
+           
+
+
         }
     }
 }

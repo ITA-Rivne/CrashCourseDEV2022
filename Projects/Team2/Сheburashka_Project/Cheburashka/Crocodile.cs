@@ -8,5 +8,9 @@ namespace Cheburashka
 {
     class Crocodile : Animal
     {
+        public Crocodile (string name, int weight) : base(name, weight)
+        { }
+        public Crocodile (string name) : base(name)
+        { }
     }
 }
