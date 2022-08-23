@@ -53,9 +53,9 @@ namespace Cheburashka
 
         public void Say()
         {
-            string s = $"Привіт! Я { this.name}!";
+            string s = $"Я { this.name}!";
             if (this.count != 0)
-            { s =  s + $"Я виконую роботу {this.work} і несу, будматеріал кількістю {this.count} "; }
+            { s =  s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
             else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількістю {this.weight} "; }
             Console.WriteLine(s);
 
