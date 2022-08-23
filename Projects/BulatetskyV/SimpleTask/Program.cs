@@ -77,6 +77,36 @@ namespace SimpleTask
             Console.WriteLine(s6);
             Console.ReadKey();
 
+            //207. Dublicatein array more then 2 times
+            Console.WriteLine("------207. Search dublicate more 2 times-----");
+            Random r7 = new Random();
+            int[] array = new int[10];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = r7.Next(1, 10);
+                Console.Write(array[i] + " ");
+            }
+            Console.ReadKey();
+            Console.WriteLine("\nSearching dublicate more 2 times...");
+            int count = default;
+            string number = "";
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j=0; j < array.Length; j++)
+                {
+                    if (array[i] == array[j] && i != j)
+                    {
+                        if (!number.Contains(array[j].ToString()))
+                        {
+                            count++;
+                            number += array[j];
+                        }
+                    }
+                }
+                //Console.WriteLine("\n");
+            }
+            Console.ReadKey();
+
             //Soon to be continued
 
         }
