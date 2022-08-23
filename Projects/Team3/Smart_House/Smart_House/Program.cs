@@ -7,6 +7,7 @@ namespace Smart_House
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World Smart House!");
+            Console.WriteLine("TEST MY  BRANCH");
         }
     }
 }
