@@ -11,7 +11,9 @@ namespace Cheburashka
         public Lion(string name, int weight) : base(name, weight)
         { }
         public Lion(string name) : base(name)
-        { }
+        {
+            this.weight = random.Next(1, 12);
+        }
 
 
     }

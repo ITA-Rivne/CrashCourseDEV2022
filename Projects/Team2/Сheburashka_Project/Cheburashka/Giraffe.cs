@@ -11,7 +11,9 @@ namespace Cheburashka
         public Giraffe (string name, int weight) : base(name, weight)
         { }
         public Giraffe (string name) : base(name)
-        { }
+        {
+            this.weight = random.Next(1, 7);
+        }
 
     }
 }

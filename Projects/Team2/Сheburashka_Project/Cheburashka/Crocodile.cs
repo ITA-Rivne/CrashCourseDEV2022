@@ -11,6 +11,8 @@ namespace Cheburashka
         public Crocodile (string name, int weight) : base(name, weight)
         { }
         public Crocodile (string name) : base(name)
-        { }
+        {
+            this.weight = random.Next(1, 10);
+        }
     }
 }
