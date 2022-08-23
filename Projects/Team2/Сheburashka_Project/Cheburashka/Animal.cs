@@ -19,11 +19,13 @@ namespace Cheburashka
         {
             this.name = name;
             this.weight = weight;
+            Console.WriteLine($"Привіт я {this.name}");
         }
         public Animal (string name)
         {
             this.name = name;
             this.weight = random.Next(1, 10);
+            Console.WriteLine($"Привіт я {this.name}");
         }
 
         public string Name
