@@ -46,6 +46,7 @@ namespace Cheburashka
                 a = 0;
             }
             this.count = a;
+            Say();
             return a;
         }
 
@@ -54,8 +55,8 @@ namespace Cheburashka
         {
             string s = $"Привіт! Я { this.name}!";
             if (this.count != 0)
-            { s =  s + $"Я виконую роботу {this.work} і несу цеглу кількістю {this.count} "; }
-            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількість цеглин {this.weight} "; }
+            { s =  s + $"Я виконую роботу {this.work} і несу, будматеріал кількістю {this.count} "; }
+            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількістю {this.weight} "; }
             Console.WriteLine(s);
 
 

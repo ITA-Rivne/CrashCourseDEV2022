@@ -18,8 +18,6 @@ namespace Cheburashka
             int a;
             a = r.GetWork("фундамент", 6);
             Console.WriteLine(a);
-            r.Say();
-
             Console.ReadLine();
                      
 
