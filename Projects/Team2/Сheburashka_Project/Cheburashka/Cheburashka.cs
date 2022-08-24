@@ -12,12 +12,12 @@ namespace Cheburashka
         public float Height { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void GetWork(string work, int count)
+        public int GetWork(string work, int count)
         {
             throw new NotImplementedException();
         }
 
-        public string Say()
+        public void Say()
         {
             throw new NotImplementedException();
         }

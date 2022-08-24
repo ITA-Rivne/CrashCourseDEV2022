@@ -9,8 +9,8 @@ namespace Cheburashka
     interface IPerson
     {
         string Name { get; set; }
-        string Say();
-        void GetWork(string work, int count); // Work to be done and quantity
+        void Say();
+        int GetWork(string work, int count); // Work to be done and quantity
 
     }
 }

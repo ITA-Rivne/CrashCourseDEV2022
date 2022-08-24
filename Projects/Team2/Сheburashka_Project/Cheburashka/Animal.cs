@@ -9,18 +9,22 @@ namespace Cheburashka
     public class Animal : IPerson
     {
         private string name;
-        public int weight;
+        public int strong;
+        public int count;
+        public string work;
+
         public static Random random = new Random();
 
-        public Animal (string name, int weight)
+        public Animal (string name, int strong)
         {
             this.name = name;
-            this.weight = weight;
+            this.strong = strong;
+            Console.WriteLine($"Привіт я {this.name}");
         }
         public Animal (string name)
         {
             this.name = name;
-            this.weight = random.Next(1, 10);
+            Console.WriteLine($"Привіт я {this.name}");
         }
 
         public string Name
@@ -28,26 +32,34 @@ namespace Cheburashka
             get => name;
             set => name = value;
         }
-       
 
-        public void GetWork(string work, int count)
+
+        public int GetWork(string work, int count)
         {
-            if (count <= weight)
+            this.work = work;
+            int a;
+            if (count <= strong)
             {
-                string a = Say() + $"Я виконую роботу {work} і несу цеглу кількістю {count}";
-                Console.WriteLine(a);
+                a = count;
             }
             else
-                Console.WriteLine(Say() + $"Я не можу підняти цеглин кількістю {count}, максимум можу підняти кількість цеглин {weight} ");
-
-
+            {
+                a = 0;
+            }
+            this.count = a;
+            Say();
+            return a;
         }
 
-        public string Say()
-        {
-            string s = $"Привіт! Я {this.name}!";
 
-            return s;
+        public void Say()
+        {
+            string s = $"Я { this.name}!";
+            if (this.count != 0)
+            { s =  s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
+            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількістю {this.strong} "; }
+            Console.WriteLine(s);
+
 
         }
     }
