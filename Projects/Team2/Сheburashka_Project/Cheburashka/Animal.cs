@@ -8,10 +8,10 @@ namespace Cheburashka
 {
     public class Animal : IPerson
     {
-        private string name;
-        public int strong;
-        public int count;
-        public string work;
+        private string name; // Ім'я
+        public int strong; // Сила, генерується випадковим чином, так як персонаж втомлюється і набирається сил
+        public int count; // кількість будматеріалу, яку може підняти персонаж
+        public string work; // робота, яку виконує персонаж
 
         public static Random random = new Random();
 
@@ -33,8 +33,9 @@ namespace Cheburashka
             set => name = value;
         }
 
-
-        public int GetWork(string work, int count)
+        // Якщо персонаж достатньо сильний, щоб підняти будматеріал кількістю count,
+        // то функція поверне це значення, інакше персонаж не взмозі підняти будматеріал і функція поверне значнення 0
+        public int GetWork(string work, int count) 
         {
             this.work = work;
             int a;
@@ -51,7 +52,7 @@ namespace Cheburashka
             return a;
         }
 
-
+        // Персонаж озвучує свою роботу
         public void Say()
         {
             string s = $"Я { this.name}!";
