@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -97,6 +98,8 @@ namespace Lesson4
 
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8; //встановлюємо кодування для виводу кирилиці в консоль
+
             #region//--------------- Приклади реалізації інтерфейсів---------------------------
 
             //Колекція створена через реалізацію IEnumerable + IEnumerator
@@ -143,6 +146,7 @@ namespace Lesson4
 
             
             var animalsCollection = new List<Animal>();
+
             //об'єкти з класів наслідників можуть поводитись як об'єкти батьківських класів
             //не можна порушувати принцип SOLID L= Lliskov substitution principle - принцип підстановки
             animalsCollection.Add(cat1);
@@ -154,6 +158,54 @@ namespace Lesson4
 
 
             //--------------- РОБОТА З ФАЙЛАМИ -----------------------
+
+            //Робота з дисками
+            DriveInfo[] drives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in drives)
+            {
+                Console.WriteLine($"Назва: {drive.Name}");
+                Console.WriteLine($"Тип: {drive.DriveType}");
+                if (drive.IsReady)
+                {
+                    Console.WriteLine($"Розмір диску: {drive.TotalSize}");
+                    Console.WriteLine($"Вільний простір: {drive.TotalFreeSpace}");
+                    Console.WriteLine($"Мітка диска: {drive.VolumeLabel}");
+                }
+                Console.WriteLine();
+            }
+
+            //Робота з калалогами
+            string path = @"C:\SomeDir";
+            string subpath = @"program\avalon";
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+            dirInfo.CreateSubdirectory(subpath);
+
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            Directory.CreateDirectory($"{path}/{subpath}");
+
+
+
+            //Робота з файлами
+
+            //клас FileInfo
+            //CopyTo(path)
+            //Create()
+            //Delete()
+
+            //клас File
+            //Copy(): копіює файл в нове місце
+            //Create(): створює файл
+            //Delete(): видаляє файл
+            //Move: переміщує файл в нове місце
 
 
 
@@ -186,6 +238,7 @@ namespace Lesson4
             catsCollection.Add(new Cat(2, 3, 4));
 
             JSONSerializationExample(animalsCollection);
+            Console.ReadLine();
 
         }
     }
