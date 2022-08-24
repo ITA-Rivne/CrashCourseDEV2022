@@ -51,6 +51,7 @@
     <Compile Include="Giraffe.cs" />
     <Compile Include="Girl.cs" />
     <Compile Include="House.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="IHouse.cs" />
     <Compile Include="IPerson.cs" />
     <Compile Include="IToy.cs" />
