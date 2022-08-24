@@ -95,4 +95,22 @@ namespace Fairytale
             Console.ReadLine();
         }
     }
-}
+
+    public static async Task JSONSerializationExample(List<Animal> animalsCollection)
+    {
+        Console.WriteLine($"---------------JSONSerializationExample----------------");
+
+        // збереження данных
+        using (var fileStream = new FileStream("animalsCollection.json", FileMode.OpenOrCreate))
+        {
+            //серіалізація в Json
+            string jsonString = JsonConvert.SerializeObject(animalsCollection);
+            Console.WriteLine(jsonString);
+
+            // конвертуємо в байти і записуємо в файл
+            byte[] array = System.Text.Encoding.Default.GetBytes(jsonString);
+
+            fileStream.Write(array, 0, array.Length);
+            Console.WriteLine("Data has been saved to file");
+        }
+    }

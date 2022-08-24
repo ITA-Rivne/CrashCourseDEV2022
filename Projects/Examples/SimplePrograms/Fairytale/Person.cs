@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Fairytale
 {
-    public class Person {
+    public class Person : IEatable
+    {
 
         public int cunning;
         public string name;
@@ -33,7 +34,7 @@ namespace Fairytale
         }
         
 
-        public void Eat(ref Kolobok kolobok)
+        public Kolobok Eat(ref Kolobok kolobok)
         {
             if (this.cunning > kolobok.cunning && kolobok.temperature < 35)
             {
@@ -45,6 +46,7 @@ namespace Fairytale
             {
                 kolobok.RunAway(this.name);
             }
+            return kolobok;
         }        
     }
 }
