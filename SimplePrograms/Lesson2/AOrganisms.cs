@@ -18,7 +18,7 @@ namespace Lesson2
         //віртуальні virtual методи можуть бути переписані\override в класах нащадках = принцип ООП поліморфізм
         public virtual string GetName() => "I'm organism";
 
-        //абстрактні abstract методи мають бути реальізовані у класах нащадках
+        //абстрактні abstract методи мають бути реалізовані у класах нащадках
         public abstract void GetState();
     }
 }

@@ -6,7 +6,7 @@ namespace Lesson2
 {
     class ProgramOOD
     {
-        #region Functions
+        #region Methods
         //перезавантажені overload методи - методи з різною сигнатурою
         public static string calculate(int a, int b = 2323)
         {
@@ -17,8 +17,8 @@ namespace Lesson2
         {
             return a + b.ToString();
         }
-        #endregion Functions
-        
+        #endregion Methods
+
         public static async Task Main(string[] args)
         {
 
@@ -31,6 +31,7 @@ namespace Lesson2
 
             //створення об'єкту типу Animals
             Animal animal1 = new Animal(12, 7, 30);
+
             animal1.Move(2, 4);
             animal1.GetState();
 

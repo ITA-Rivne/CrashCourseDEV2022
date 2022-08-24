@@ -5,7 +5,7 @@ namespace Lesson2
 {
     public class Animal : AOrganisms //клас Animal наслідується від абстрактного класу AOrganisms
     {
-    #region Fields
+    #region Fields and Properties
         //різні модифікатори доступу
         private int _form; // доступний лише всередині класу
 
@@ -13,12 +13,17 @@ namespace Lesson2
 
         protected int weight; // доступний з класів нащадків
 
-        public int speed;
+        internal int speed; // доступний лише в межах Assembly (збірки)
+
+        //protected internal
+        //private protected
 
         public const string CLASS_NAME = "ТВАРИНИ"; //приклад константи
 
         public string Name  //властивіть - поле для якого визначені методи Get i Set
         { get; private set; }
+
+
         #endregion Fields
 
         #region Methods

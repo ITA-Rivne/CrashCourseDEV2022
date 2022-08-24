@@ -10,63 +10,89 @@ namespace Fairytale
     {
         static void Main(string[] args)
         {
-            //Казка колобок
-            Console.WriteLine("Fairytale kolobok");
+            Console.OutputEncoding = Encoding.UTF8; //встановлюємо кодування для виводу кирилиці в консоль
+            Console.WriteLine("Казка КОЛОБОК \n");
+            try
+            {
+                #region 1. Баба і дід печуть колобка
 
-            //1. Баба і дід печуть колобка
-            #region Details
                 //a) потрібен клас Persons - породить два об'єкти дід і баба
-                        //дід вміє говорити і їсти колобка
-                        // = string Speak(); void Eat(Kolobok myKolobok)
-                        //баба вміє пекти колобка і їсти колобка
-                        // = Kolobok CookKolobok(); void Eat(Kolobok myKolobok)
+                //дід вміє говорити і їсти колобка
+                // = string Speak(); void Eat(Kolobok myKolobok)
+                //баба вміє пекти колобка і їсти колобка
+                // = Kolobok CookKolobok(); void Eat(Kolobok myKolobok)
                 //б) потрібен клас Kolobok
-                        // колобок вміє співати пісню, утікати = два методи
-                        // поля - температура, хитрість, швидкість
+                // колобок вміє співати пісню, утікати = два методи
+                // поля - температура, хитрість, швидкість
                 #region Realization
-                    var baba = new Person();
-                    var did = new Person();
-                    var myKolobok = baba.CookKolobok();
+                var did = new Person("Дід");
+                var baba = new Person("Баба");
+
+                var kolobok = baba.CookKolobok();
 
                 #endregion
-            #endregion
+                #endregion
 
-            //2. колобок тікає від діда та баби (якщо він хитріший)
-            #region Details
-            //a) запускаємо два методи bolean\Kolobok Eat(Kolobok myKolobok) від діда і баби, якщо
-            //колобок не гарячий і якщо вони розумніші, то з'їдять колобка,
-            // якщо ж ні, то колобок втече
-            #endregion
+                #region 2. Колобок тікає від діда та баби (якщо він хитріший, або якщо не встиг охолонути)
 
-            //3. колобок тікає від зайця
-            #region Details
-            //а) потрібно загальний клас звірі і класи нащадки - заєць і т.д.
-            // звірі - вміють говорити і їсти колобка
-            // має бути поле хитрість і можна ще швидкість
-            //б) об'єкт колобок передаємо параметром для rabbit.Eat(myKolobok)
-            #endregion
+                //a) запускаємо два методи bolean\Kolobok Eat(Kolobok myKolobok) від діда і баби, якщо
+                //колобок не гарячий і якщо вони розумніші, то з'їдять колобка,
+                // якщо ж ні, то колобок втече
 
-            //4. колобок тікає від вовка
-            #region Details
-            //a) об'єкт колобок передаємо параметром для volf.Eat(myKolobok)
-            #endregion
+                did.Eat(ref kolobok);
+                baba.Eat(ref kolobok);
 
-            //5. колобок тікає від ведмедя
-            #region Details
-            //a) об'єкт колобок передаємо параметром для bear.Eat(myKolobok)
-            #endregion
+                #endregion
 
-            //6. колобок тікає від лисиці (якщо він хитріший - гру виграно\казку завершено)
-            #region Details
-            //a) об'єкт колобок передаємо параметром для fox.Eat(myKolobok)
-            #endregion
+                #region 3. колобок тікає від зайця
+                //а) потрібно загальний клас звірі і класи нащадки - заєць і т.д.
+                // звірі - вміють говорити і їсти колобка
+                // має бути поле хитрість і можна ще швидкість
+                //б) об'єкт колобок передаємо параметром для rabbit.Eat(myKolobok)
 
-            #region Remarks
-            /// архітектурні зауваження 
-            ///     усі можуть з'їсти колобка - можемо зробити інтерфейс IFeedable
-            ///     усі можуть говорити - можемо зробити інтерфейс ITalkable
-            #endregion
-            Console.WriteLine("От і казочці кінець");
+                var rabbit = new Rabbit("Зайчик");
+                rabbit.Eat(ref kolobok);
+
+                #endregion
+
+                #region 4. Колобок тікає від вовка
+                //a) об'єкт колобок передаємо параметром для volf.Eat(myKolobok)
+
+                var volf = new Volf("Вовк");
+                volf.Eat(ref kolobok);
+
+                #endregion
+
+                #region 5. колобок тікає від ведмедя
+                //a) об'єкт колобок передаємо параметром для bear.Eat(myKolobok)
+
+                var bear = new Bear("Ведмідь");
+                bear.Eat(ref kolobok);
+
+                #endregion
+
+                #region 6. колобок тікає від лисиці (якщо він хитріший - гру виграно\казку завершено)
+                //a) об'єкт колобок передаємо параметром для fox.Eat(myKolobok)
+                var fox = new Fox("Лисиця", 2);
+                fox.Eat(ref kolobok);
+                #endregion
+
+                #region Remarks
+                /// архітектурні зауваження 
+                ///     усі можуть з'їсти колобка - можемо зробити інтерфейс IFeedable
+                ///     усі можуть говорити - можемо зробити інтерфейс ITalkable
+                #endregion
+
+                if (kolobok != null) Console.WriteLine("Колобок живий!!!");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.WriteLine("Кінець казки!");
+
+            Console.ReadLine();
         }
     }
 }
