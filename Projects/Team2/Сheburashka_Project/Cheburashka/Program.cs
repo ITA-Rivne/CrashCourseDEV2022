@@ -17,6 +17,10 @@ namespace Cheburashka
            Lion r = new Lion("Лев");
             int a;
             a = r.GetWork("фундамент", 6);
+            Girl h = new Girl ("Настя", 5);
+           
+            a = h.GetWork("фундамент", 6);
+
             Console.WriteLine(a);
             Console.ReadLine();
                      
