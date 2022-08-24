@@ -8,11 +8,11 @@ namespace Cheburashka
 {
     class Giraffe : Animal 
     {
-        public Giraffe (string name, int weight) : base(name, weight)
+        public Giraffe (string name, int strong) : base(name, strong)
         { }
         public Giraffe (string name) : base(name)
         {
-            this.weight = random.Next(1, 7);
+            this.strong = random.Next(1, 7);
         }
 
     }

@@ -9,16 +9,16 @@ namespace Cheburashka
     public class Animal : IPerson
     {
         private string name;
-        public int weight;
+        public int strong;
         public int count;
         public string work;
 
         public static Random random = new Random();
 
-        public Animal (string name, int weight)
+        public Animal (string name, int strong)
         {
             this.name = name;
-            this.weight = weight;
+            this.strong = strong;
             Console.WriteLine($"Привіт я {this.name}");
         }
         public Animal (string name)
@@ -38,7 +38,7 @@ namespace Cheburashka
         {
             this.work = work;
             int a;
-            if (count <= weight)
+            if (count <= strong)
             {
                 a = count;
             }
@@ -57,7 +57,7 @@ namespace Cheburashka
             string s = $"Я { this.name}!";
             if (this.count != 0)
             { s =  s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
-            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількістю {this.weight} "; }
+            else { s = s+ $"Я не можу підняти стільки, максимум можу підняти кількістю {this.strong} "; }
             Console.WriteLine(s);
 
 

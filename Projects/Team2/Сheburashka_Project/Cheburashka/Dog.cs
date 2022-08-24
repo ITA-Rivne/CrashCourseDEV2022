@@ -8,10 +8,10 @@ namespace Cheburashka
 {
     class Dog : Animal
     {
-        public Dog (string name, int weight) : base(name, weight)
+        public Dog (string name, int strong) : base(name, strong)
         { }
         public Dog (string name) : base(name)
-        { this.weight = random.Next(1, 2); }
+        { this.strong = random.Next(1, 2); }
 
     }
 }
