@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cheburashka
 {
-    class Girl : IPerson
+    class Girl : Human
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public int GetWork(string work, int count)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Say()
-        {
-            throw new NotImplementedException();
-        }
+        public Girl (string name, int strong) : base(name, strong)
+        { }
     }
 }

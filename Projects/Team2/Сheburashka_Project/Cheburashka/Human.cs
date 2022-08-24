@@ -33,7 +33,8 @@ namespace Cheburashka
         public int GetWork(string work, int count)
         {
             int strong;
-            if (this.numberYears < 12) { strong = 0; }
+            if (this.numberYears < 9) { strong = 1; }
+            else if (this.numberYears < 15) { strong = 5; }
             else if (this.numberYears < 30) { strong = 10; }
             else if (this.numberYears < 50) { strong = 5; }
             else { strong = 0; }
