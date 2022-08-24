@@ -60,6 +60,7 @@ namespace Cheburashka
             string s = $"Я { this.name}!";
             if (this.count != 0)
             { s = s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
+
             else { s = s + $"Я не можу підняти стільки, найбільше можу підняти кількістю {this.strong} "; }
             Console.WriteLine(s);
 
