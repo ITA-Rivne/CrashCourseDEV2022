@@ -17,6 +17,7 @@ namespace Smart_House
         public Lamp Lamp = new Lamp(100);
 
 
+
         public int Temperature
         {
             get => _temperature;
