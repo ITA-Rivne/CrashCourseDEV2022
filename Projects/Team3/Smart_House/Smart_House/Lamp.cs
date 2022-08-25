@@ -26,6 +26,7 @@ namespace Smart_House
             //else {
             //    Console.WriteLine(">>>>>>>>Lamp already  ON! >>>>>>>");
             //}
+
            
         }
 
