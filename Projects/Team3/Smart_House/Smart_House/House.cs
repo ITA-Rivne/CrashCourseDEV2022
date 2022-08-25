@@ -9,6 +9,12 @@ namespace Smart_House
     class House
     {
         private int _temperature;
+        public TemperatureSensor temperatureSensor;
+        public House()
+        {
+            temperatureSensor = new TemperatureSensor(this);
+            temperatureSensor.ValueOutOfRange += (o, args) => Console.WriteLine("Out Of range");
+        }
         public void Run()
         {
             Console.WriteLine("_______Smart House_____OPENED\n\n");

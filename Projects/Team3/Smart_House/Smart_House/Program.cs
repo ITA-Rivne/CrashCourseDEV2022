@@ -7,8 +7,8 @@ namespace Smart_House
         static void Main(string[] args)
         {
             House house = new House();
-
-            house.Run();
+            house.temperatureSensor.Value = 50; // fot test
+            //house.Run();
             
         }
     }

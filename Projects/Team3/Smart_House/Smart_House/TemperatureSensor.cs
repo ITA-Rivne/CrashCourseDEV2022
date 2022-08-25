@@ -35,7 +35,14 @@ namespace Smart_House
             set
             {
                 _temperature = value;
-             }
+                _temperature = value;
+                if (value >= _dangerousFireTemperature)
+                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedOutFire });
+                else if (value < _desireMinTemperature)
+                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedWarm });
+                else if (value > _desireMaxTemperature)
+                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedCool });
+            }
         }
 
         public event EventHandler ValueOutOfRange;
