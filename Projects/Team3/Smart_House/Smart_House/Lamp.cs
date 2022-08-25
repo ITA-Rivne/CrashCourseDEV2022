@@ -23,6 +23,9 @@ namespace Smart_House
                 Console.WriteLine(">>>>>>>> Somebody come in house. Lamp ON! >>>>>>>");
 
             }
+            //else {
+            //    Console.WriteLine(">>>>>>>>Lamp already  ON! >>>>>>>");
+            //}
            
         }
 

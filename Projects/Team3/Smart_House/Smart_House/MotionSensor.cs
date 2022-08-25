@@ -21,8 +21,9 @@ namespace Smart_House
 
         //int _desireMinLUX;
         //int _desireMaxLUX;
-        public MotionSensor(int lux=defaultLUX) {
+        public MotionSensor(House house,int lux=defaultLUX) {
             this._lux = lux;
+            this.House = house;
         }
 
         public int Value
