@@ -40,7 +40,10 @@ namespace Team1_task211
             set { RoofSolidity = value; }
         }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     // class Basement (фундамент будинку)
     class Basement
     {
@@ -63,7 +66,11 @@ namespace Team1_task211
 
         public void ShowData()
         {
+<<<<<<< Updated upstream
             Console.WriteLine($"Міцність стін складає {basementSolidity} одиниць.");
+=======
+            Console.WriteLine($"Міцність фундаменту складає {basementSolidity} одиниць.");
+>>>>>>> Stashed changes
         }
     }
 
