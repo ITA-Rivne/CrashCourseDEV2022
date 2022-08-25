@@ -17,13 +17,13 @@ namespace Smart_House
         int _desireMaxTemperature;
         int _dangerousFireTemperature;
 
-        public House house;
+        public House House;
         public TemperatureSensor(House house,
             int minDesireTemp = defaultTemperature,
             int maxDesireTemp = defaultMaxTemperature,
             int dangerousFireTemp = defaultDangerousFireTemperature)
         {
-            this.house = house;
+            this.House = house;
             _desireMinTemperature = minDesireTemp;
             _desireMaxTemperature = maxDesireTemp;
             _dangerousFireTemperature = dangerousFireTemp;
@@ -36,11 +36,11 @@ namespace Smart_House
             {
                 _temperature = value;
                 if (value >= _dangerousFireTemperature)
-                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedOutFire });
+                    ValueOutOfRange?.Invoke(House, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedOutFire });
                 else if (value < _desireMinTemperature)
-                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedWarm });
+                    ValueOutOfRange?.Invoke(House, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedWarm });
                 else if (value > _desireMaxTemperature)
-                    ValueOutOfRange?.Invoke(house, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedCool });
+                    ValueOutOfRange?.Invoke(House, new NeedsRegimeEventArgs { NeedsRegime = NeedsRegime.NeedCool });
             }
         }
 
