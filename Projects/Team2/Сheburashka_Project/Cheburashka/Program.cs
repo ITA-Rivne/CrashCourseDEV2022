@@ -22,6 +22,13 @@ namespace Cheburashka
             a = h.GetWork("фундамент", 6);
 
             Console.WriteLine(a);
+            Cheburashka ch = new Cheburashka("Cheb", 3);
+            ch.Say();
+            ch.GetWork("Стіна", 1);
+            ch.GetWork("Дах", 2);
+            ch.GetWork("Стіна", 2);
+            ch.DoneWork();
+            ch.GetWork("Дах", 2);
             Console.ReadLine();
                      
 
