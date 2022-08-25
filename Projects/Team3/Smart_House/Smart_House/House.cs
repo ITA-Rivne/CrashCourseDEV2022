@@ -10,6 +10,15 @@ namespace Smart_House
     {
         private int _temperature;
         public TemperatureSensor temperatureSensor;
+        public int Temperature
+        {
+            get => _temperature;
+            set
+            {
+                _temperature = value;
+                temperatureSensor.Value = value;
+            }
+        }
         public House()
         {
             temperatureSensor = new TemperatureSensor(this);
@@ -27,8 +36,8 @@ namespace Smart_House
             do
             {
                 
-                temp = rnd.Next(15, 30);
-                _temperature = temp;
+                temp = rnd.Next(10, 40);
+                Temperature = temp;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"House temperature NOW : {_temperature}");
                 System.Threading.Thread.Sleep(interval);
