@@ -17,23 +17,29 @@ namespace Smart_House
 
         public void Handler(object o, EventArgs e)
         {
-
-            House h = o as House;
-            NeedsRegimeEventArgs ne = e as NeedsRegimeEventArgs;
-            switch (ne.NeedsRegime)
+            if (IsOn())
             {
-                case NeedsRegime.NeedCool:
-                    Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air cooling");
-                    h.Temperature -= _delta;
-                    break;
-                case NeedsRegime.NeedWarm:
-                    Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air heating");
-                    h.Temperature += _delta;
-                    break;
-                default:
-                    break;
-            };
-
+                House h = o as House;
+                NeedsRegimeEventArgs ne = e as NeedsRegimeEventArgs;
+                switch (ne.NeedsRegime)
+                {
+                    case NeedsRegime.NeedCool:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air cooling");
+                        h.Temperature -= _delta;
+                        break;
+                    case NeedsRegime.NeedWarm:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air heating");
+                        h.Temperature += _delta;
+                        break;
+                    case NeedsRegime.NeedOutFire:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Dangerous of fire!!!!");
+                        break;
+                    default:
+                        break;
+                };
+            }
+            else
+                Console.WriteLine(">>>>>>>>>>>>>>>>>> Must On AirCondition >>>>>>>");
 
         }
     }

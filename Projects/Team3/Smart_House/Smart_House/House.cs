@@ -10,6 +10,8 @@ namespace Smart_House
     {
         private int _temperature;
         public TemperatureSensor temperatureSensor;
+        public AirConditioner AirConditioner = new AirConditioner();
+
         public int Temperature
         {
             get => _temperature;
@@ -19,10 +21,13 @@ namespace Smart_House
                 temperatureSensor.Value = value;
             }
         }
-        public House()
+        
+        public House(int startTemp = 20)
         {
-            temperatureSensor = new TemperatureSensor(this);
-            temperatureSensor.ValueOutOfRange += (o, args) => Console.WriteLine("Out Of range");
+            _temperature = startTemp;
+            temperatureSensor = new TemperatureSensor(this); // прив`язали сенсор до цього будинку 
+            temperatureSensor.ValueOutOfRange += AirConditioner.Handler;
+            AirConditioner.Power();
         }
         public void Run()
         {
@@ -33,17 +38,21 @@ namespace Smart_House
             int interval = 1000;
 
             int temp;
+            ConsoleKeyInfo key;
             do
             {
-                
-                temp = rnd.Next(10, 40);
+                Console.WriteLine("Enter temperature : ");
+                temp = int.Parse(Console.ReadLine());
                 Temperature = temp;
+                //int randFactor =  rnd.Next(-10, 11);
+                //Temperature += randFactor;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"House temperature NOW : {_temperature}");
-                System.Threading.Thread.Sleep(interval);
-
+                Console.WriteLine($"House temperature NOW : {Temperature}");
+                // System.Threading.Thread.Sleep(interval);
+                Console.WriteLine("\t\tPress any  key");
+                key = Console.ReadKey();
             }
-            while (!Console.KeyAvailable);
+            while (key.Key!= ConsoleKey.Escape);// !Console.KeyAvailable);
 
             Console.WriteLine("\n\n_______Smart House_____CLOSED");
         }
