@@ -7,7 +7,7 @@ namespace Lesson4
     //Позначаємо для Xml серіалізації, що клас Animal може включати об'єкти класу Cat
     [XmlInclude(typeof(Cat))]
     
-    public class Animal
+    public class Animal : IDisposable
     {
 
         [XmlElement()] //позначаємо кожне поле, яке має бути серіалізоване
@@ -50,6 +50,19 @@ namespace Lesson4
         public virtual int Move(int a, int b = 1)
         {
             return (a + b) * speed;
+        }
+
+
+        //---------------------------ДЕСТРУКТОР--------------------------------------------
+        //метод, який викликається при знищення об'єкту
+        ~Animal()
+        {
+            Console.WriteLine("Destructor's logic: object has been deleted");
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("Dispose logic");
         }
 
     }

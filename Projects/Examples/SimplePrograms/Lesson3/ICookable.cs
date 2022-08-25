@@ -7,5 +7,7 @@ namespace Lesson3
     interface ICookable<Food>
     {
         Food GetFood();
+
+
     }
 }
