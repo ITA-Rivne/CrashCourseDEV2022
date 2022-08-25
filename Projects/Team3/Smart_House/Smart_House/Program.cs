@@ -6,8 +6,13 @@ namespace Smart_House
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World Smart House!");
-            Console.WriteLine("TEST MY  BRANCH");
+            House house = new House();
+            //house.temperatureSensor.Value = 50; // for test
+            //house.Temperature = 0; // for test
+           // house.Temperature = 40; // for test
+            //house.Temperature = 50; // for test
+            house.Run();
+            
         }
     }
 }

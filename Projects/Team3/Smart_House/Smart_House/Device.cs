@@ -11,7 +11,7 @@ namespace Smart_House
         int _id = ++lastId; //id
         static int lastId = 0;//count devices in house
         bool _on = false;
-        
+        public bool IsOn() => _on;
         public void Power()
         {
             _on=!_on;
