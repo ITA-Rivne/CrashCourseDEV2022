@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Building.cs" />
     <Compile Include="IMaterials.cs" />
     <Compile Include="IAnimal.cs" />
     <Compile Include="IPiggi.cs" />
