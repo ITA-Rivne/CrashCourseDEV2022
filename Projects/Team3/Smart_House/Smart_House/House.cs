@@ -9,8 +9,13 @@ namespace Smart_House
     class House
     {
         private int _temperature;
+        private int _lux;
+        private bool _isMoving;
         public TemperatureSensor temperatureSensor;
         public AirConditioner AirConditioner = new AirConditioner();
+        public MotionSensor MotionSensor;
+        public Lamp Lamp = new Lamp(100);
+
 
         public int Temperature
         {
@@ -19,6 +24,23 @@ namespace Smart_House
             {
                 _temperature = value;
                 temperatureSensor.Value = value;
+            }
+        }
+
+        public int Lux {
+            get => _lux;
+            set {
+                _lux = value;
+                MotionSensor.Value = value;
+
+            }
+        }
+
+        public bool IsMoving {
+            get => _isMoving;
+            set {
+                _isMoving = value;
+                MotionSensor.IsMoving=value;
             }
         }
         
