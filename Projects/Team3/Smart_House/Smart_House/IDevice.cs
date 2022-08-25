@@ -8,5 +8,6 @@ namespace Smart_House
 {
     interface IDevice
     {
+        void Power();
     }
 }
