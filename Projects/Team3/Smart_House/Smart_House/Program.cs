@@ -6,8 +6,9 @@ namespace Smart_House
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("_______Smart House_____opened");
             House house = new House();
+
+            house.Run();
             
         }
     }
