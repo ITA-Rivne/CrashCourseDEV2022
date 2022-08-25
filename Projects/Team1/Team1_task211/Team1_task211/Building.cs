@@ -9,113 +9,113 @@ namespace Team1_task211
     class Building
     {
         String buildingName;
-        int buildingSolidity; // the level of building's solidity (its strength), from 1 to 10  
+        //float buildingSolidity;  
         bool buildingStatus = true; // whether it is intact or destroyed
 
         public Building(String buildingName)
         {
             this.buildingName = buildingName;
-            this.buildingSolidity = new Random().Next(1, 10);
+            // this.buildingSolidity = new Random().Next(1, 10);
 
-            Console.WriteLine($"Ми називаємо цей будиночок {buildingName}");
+            Console.WriteLine($"Я називаю свій будиночок '{buildingName}'!");
             Console.ReadKey();
 
         }
 
-        public Basement BasementDepth
+        public Basement BasementSolidity
         {
-            get { return BasementDepth; }
-            set { BasementDepth = value; }
+            get { return BasementSolidity; }
+            set { BasementSolidity = value; }
         }
 
-        public Walls WallsColor
+        public Walls WallsSolidity
         {
-            get { return WallsColor; }
-            set { WallsColor = value; }
+            get { return WallsSolidity; }
+            set { WallsSolidity = value; }
         }
 
-        public Walls RoofColor
+        public Walls RoofSolidity
         {
-            get { return RoofColor; }
-            set { RoofColor = value; }
+            get { return RoofSolidity; }
+            set { RoofSolidity = value; }
         }
     }
 
     // class Basement (фундамент будинку)
     class Basement
     {
-        float basementDepth; // the depth of the basement in meters
+        float basementSolidity;
 
         public Basement()
         {
-            basementDepth = 3;
+            this.basementSolidity = new Random().Next(1, 10);
         }
-        public Basement(float basementDepth)
+        public Basement(float basementSolidity)
         {
-            this.basementDepth = basementDepth;
+            this.basementSolidity = basementSolidity;
         }
 
-        public float BasementDepth
+        public float BasementSolidity
         {
-            get { return basementDepth; }
-            set { basementDepth = value; }
+            get { return basementSolidity; }
+            set { basementSolidity = value; }
         }
 
         public void ShowData()
         {
-            Console.WriteLine($"Глибина підвалу складає {basementDepth} метрів.");
+            Console.WriteLine($"Міцність стін складає {basementSolidity} одиниць.");
         }
     }
 
     // class Walls (стіни будинку)
     class Walls
     {
-        string color; // the color of the walls
+        float wallsSolidity;
 
         public Walls()
         {
-            color = "рожевий";
+            this.wallsSolidity = new Random().Next(1, 10);
         }
-        public Walls(string color)
+        public Walls(float wallsSolidity)
         {
-            this.color = color;
+            this.wallsSolidity = wallsSolidity;
         }
 
-        public string WallsColor
+        public float WallsSolidity
         {
-            get { return color; }
-            set { color = value; }
+            get { return wallsSolidity; }
+            set { wallsSolidity = value; }
         }
 
         public void ShowData()
         {
-            Console.WriteLine($"Стіни будинку пофарбовані у {color} колір.");
+            Console.WriteLine($"Міцність стін складає {wallsSolidity} одиниць.");
         }
     }
 
     // class Roof (криша будинку)
     class Roof
     {
-        string color; // the color of the roof
+        float roofSolidity;
 
         public Roof()
         {
-            color = "коричневий";
+            this.roofSolidity = new Random().Next(1, 10);
         }
-        public Roof(string color)
+        public Roof(float roofSolidity)
         {
-            this.color = color;
+            this.roofSolidity = roofSolidity;
         }
 
-        public string RoofColor
+        public float RoofSolidity
         {
-            get { return color; }
-            set { color = value; }
+            get { return roofSolidity; }
+            set { roofSolidity = value; }
         }
 
         public void ShowData()
         {
-            Console.WriteLine($"Криша будинку пофарбована у {color} колір.");
+            Console.WriteLine($"Міцність криші складає {roofSolidity} одиниць.");
         }
     }
 }
