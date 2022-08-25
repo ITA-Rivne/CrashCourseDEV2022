@@ -54,15 +54,54 @@ namespace Team1_task211
             #region 4. Сценарій
 
             // 1. Поросята відпочивають, їм генеруються скіли.
+
+            List<Piggi> piglets = new List<Piggi>() { 
+                    new Piggi("Ніф-Ніф", 1), 
+                    new Piggi("Наф-Наф", 2), 
+                    new Piggi("Нуф-Нуф", 3)
+            };
+
+
             // 2. Будуємо будинки - вибір матеріалів випадковий, в залежності від скілів поросят
+
+            foreach (var piggi in piglets)
+            {
+                piggi.buildHouse();
+            }
+
             // 3. Вовка чекає поки не зголодніє і приходить до першого поросята
+
+            var wolf = new Wolf("Вовк", 10);
+            Console.ReadKey();
+
             //      - дихає на будинок скільки є сил, якщо розвалив, то їсть та йде до наступного поросяти
+            int deadPiggiCount = 0;
+            foreach (var piggi in piglets)
+            {
+                wolf.destructionBuilding(piggi.myHouse);
+                if (!piggi.myHouse.buildingStatus)
+                    if (piggi.catched(wolf.speed))
+                    {
+                        deadPiggiCount++;
+                        Console.WriteLine($"Я з'їв {piggi.name} \n");
+                    }
+                    else
+                        Console.WriteLine($"{piggi.name} втік\n");
+                Console.ReadKey();
+            }
             //      - намагається обдурити, якщо так, то їсть та йде до наступного поросяти
             //      - не вийшло розвалити та обдурити - порося вижило, йде до наступного поросяти
             //      - пройшов всіх, або втік в ліс, або когось зжер(
 
+            PunisherPiggi superPiggi = new PunisherPiggi("Cупер порося");
+            superPiggi.punishTheWolf(wolf, deadPiggiCount);
+         
+
+
 
             #endregion
+
+            Console.ReadKey();
 
 
         }

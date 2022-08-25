@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Team1_task211
 {
-    class Building
+    public class Building
     {
-        String buildingName;
+        public string buildingName;
         //float buildingSolidity;  
-        bool buildingStatus = true; // whether it is intact or destroyed
+        public bool buildingStatus = true; // whether it is intact or destroyed
+
+        private Materials _base;
+        private Materials wall;
+        private Materials roof;
 
         public Building(String buildingName)
         {
@@ -22,6 +26,28 @@ namespace Team1_task211
 
         }
 
+        public void setBase(Materials mat)
+        {
+            this._base = mat;
+        }
+
+        public void setWall(Materials mat)
+        {
+            this.wall = mat;
+        }
+
+        public void setRoof(Materials mat)
+        {
+            this.roof = mat;
+        }
+
+        public int buildingSolidity()
+        {
+            return _base.getStrength() + wall.getStrength() + roof.getStrength();
+        }
+
+
+        /*
         public Basement BasementSolidity
         {
             get { return BasementSolidity; }
@@ -116,6 +142,6 @@ namespace Team1_task211
         public void ShowData()
         {
             Console.WriteLine($"Міцність криші складає {roofSolidity} одиниць.");
-        }
+        }*/
     }
-}
+    }

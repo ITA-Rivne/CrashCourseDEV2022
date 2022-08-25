@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Team1_task211
 {
-    class PunisherPiggi : Piggi  //супер-порося, яке карає вовка, коли він зїдає порося
+    class PunisherPiggi: Piggi //супер-порося, яке карає вовка, коли він зїдає порося
     {
         String name;
         public PunisherPiggi(String name):base(name)
@@ -15,12 +15,18 @@ namespace Team1_task211
 
         }
 
-        public int punishTheWolf(int WolflevelOfHungry, string name, string piggiName)
+        public void punishTheWolf(Wolf wolf, int countDeadPiggi = 0)
         {
-            Console.WriteLine("Я {0} прийшов покарати вовка за те, що він з'їв порося {1}!", name, piggiName);
-            WolflevelOfHungry -= 20;
-            Console.WriteLine("Тепер у тебе життів "+ WolflevelOfHungry);
-            return WolflevelOfHungry;   
+            if (countDeadPiggi >= 3)
+            {
+                Console.WriteLine($"Я {wolf.name} прийшов покарати вовка за те, що він з'їв всіх поросят!");
+            }
+            else
+                Console.WriteLine($"{wolf.name} втік у ліс");
+
+            //            WolflevelOfHungry -= 20;
+            //Console.WriteLine("Тепер у тебе життів "+ WolflevelOfHungry);
+            //return WolflevelOfHungry;   
 
         }
 
