@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Smart_House
+namespace Fairytale
 {
-    interface IDevice
+    interface IEatable
     {
-        void Power();
+        Kolobok Eat(ref Kolobok kolobok);
     }
 }

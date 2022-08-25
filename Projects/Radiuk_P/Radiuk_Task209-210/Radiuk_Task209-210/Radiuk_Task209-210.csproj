@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7EF68A99-0BAC-4784-8DF6-FB6753AF2DB7}</ProjectGuid>
+    <ProjectGuid>{E4D387CA-715A-40AB-AFD8-8AEF8574A376}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_202</RootNamespace>
-    <AssemblyName>202</AssemblyName>
+    <RootNamespace>Radiuk_Task209_210</RootNamespace>
+    <AssemblyName>Radiuk_Task209-210</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Operations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

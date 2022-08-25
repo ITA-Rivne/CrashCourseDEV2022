@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -97,7 +98,9 @@ namespace Lesson4
 
         public static void Main(string[] args)
         {
-            //--------------- Приклади реалізації інтерфейсів---------------------------
+            Console.OutputEncoding = Encoding.UTF8; //встановлюємо кодування для виводу кирилиці в консоль
+
+            #region//--------------- Приклади реалізації інтерфейсів---------------------------
 
             //Колекція створена через реалізацію IEnumerable + IEnumerator
             var myCollection = new MyCollection();
@@ -113,11 +116,15 @@ namespace Lesson4
                 Console.WriteLine(i);
             }
 
-
+            #endregion
 
             //----------------- Приведення і підстановка класів --------------
             Cat cat1 = new Cat(2, 4, 5);
             Cat cat2 = new Cat();
+            Cat cat3 = new Cat();
+            
+            cat3.Dispose();
+            cat3 = null;
 
             Animal animal1 = new Animal();
             Animal someAnimal = new Animal();
@@ -139,6 +146,7 @@ namespace Lesson4
 
             
             var animalsCollection = new List<Animal>();
+
             //об'єкти з класів наслідників можуть поводитись як об'єкти батьківських класів
             //не можна порушувати принцип SOLID L= Lliskov substitution principle - принцип підстановки
             animalsCollection.Add(cat1);
@@ -148,46 +156,59 @@ namespace Lesson4
 
             var catsCollection = new List<Cat>();
 
-            //ВИБІРКА з Animals лище котів - є коротша форма через LINQ -дивіться нижче
-            foreach (var animal in animalsCollection)
-            {
-                try
-                {
-                    //приведення типів в даному випадку буде викидати помилки
-                    //оскільки не кожен об'єкт Animal можна привести до класу нащадка
-                    catsCollection.Add((Cat)animal);
-                    Console.WriteLine($"The cat from List says = {cat1.voise}");
-
-                    //виклик методу всередниі якого існують свої try catch конструкції
-                    //компілятор зайде всередину methodExceptionExample() і спробує опрацювати код та 
-                    //можливі помилки, якщо знайде помилки, то поверне їх у поточний try блок
-                    methodExceptionExample();
-
-                    // Створюємо власне виключення
-                    if (animal.age < 5) throw new Exception("Age is < 5 ...");
-                }
-                // ієрархія класів помилок, відловлюються специфічні і потім загальні
-                catch (SystemException ex)
-                {
-                    Console.WriteLine("Here is the SystemException!");
-                    Console.WriteLine(ex.Message);
-                }
-
-                catch (Exception ex) // Exception - загальний\базовий клас для всіх виключень
-                {
-                    Console.WriteLine("Here is the Exception!");
-                    Console.WriteLine(ex.StackTrace);
-                }
-                // блок finally виконається в обох випадках і при викиданні помилки,
-                // і якщо в блоці try помилок не було
-                finally
-                {
-                    Console.WriteLine("Here is a finally block");
-                    Console.ReadLine();
-                }
-            }
 
             //--------------- РОБОТА З ФАЙЛАМИ -----------------------
+
+            //Робота з дисками
+            DriveInfo[] drives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in drives)
+            {
+                Console.WriteLine($"Назва: {drive.Name}");
+                Console.WriteLine($"Тип: {drive.DriveType}");
+                if (drive.IsReady)
+                {
+                    Console.WriteLine($"Розмір диску: {drive.TotalSize}");
+                    Console.WriteLine($"Вільний простір: {drive.TotalFreeSpace}");
+                    Console.WriteLine($"Мітка диска: {drive.VolumeLabel}");
+                }
+                Console.WriteLine();
+            }
+
+            //Робота з калалогами
+            string path = @"C:\SomeDir";
+            string subpath = @"program\avalon";
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+            dirInfo.CreateSubdirectory(subpath);
+
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            Directory.CreateDirectory($"{path}/{subpath}");
+
+
+
+            //Робота з файлами
+
+            //клас FileInfo
+            //CopyTo(path)
+            //Create()
+            //Delete()
+
+            //клас File
+            //Copy(): копіює файл в нове місце
+            //Create(): створює файл
+            //Delete(): видаляє файл
+            //Move: переміщує файл в нове місце
+
+
+
             //обробка виключень при роботі з файлами
             try
             {
@@ -211,32 +232,13 @@ namespace Lesson4
             }
 
 
-            //-------------------DATABASE---------------------------------
-            Console.WriteLine("DATABASE");
-            Console.WriteLine($"SortOrder value = {Database.GetSortOrderByOCCategory(17)}");
-
-
-            //-------------------LINQ---------------------------------
-            //Вибірка об'єкту за параметром
-            Cat catNew = catsCollection.First((x) => x.voise == "Meow!");
-            Console.WriteLine($"The cat that have voice  = Meow! is the nex: {catNew.age}, {catNew.speed}, {catNew.voise} \n");
-
-
-            //!!!ВИБІРКА LINQ коротка форма вибірки з animalsCollection лише об'єктів типу Cats і сортування по віку
-            var newList = animalsCollection.OfType<Cat>().OrderBy(x => x.age).ToList();
-
-            foreach (var cat in newList)
-            {
-                Console.WriteLine($"The sorted cat from List = {cat.age}, {cat.speed}, {cat.voise}");
-            }
-
-
             XmlSerializationExample(animalsCollection);
 
             catsCollection.Add(new Cat(1, 2, 3));
             catsCollection.Add(new Cat(2, 3, 4));
 
             JSONSerializationExample(animalsCollection);
+            Console.ReadLine();
 
         }
     }
