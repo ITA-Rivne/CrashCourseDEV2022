@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheburashka", "Cheburashka\Cheburashka.csproj", "{A3EAFC79-4E63-4EB9-BBEC-AEDE30D107A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cheburashka", "Cheburashka.csproj", "{3153F200-0915-406A-B4B8-C4468C90897E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3EAFC79-4E63-4EB9-BBEC-AEDE30D107A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3EAFC79-4E63-4EB9-BBEC-AEDE30D107A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3EAFC79-4E63-4EB9-BBEC-AEDE30D107A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3EAFC79-4E63-4EB9-BBEC-AEDE30D107A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3153F200-0915-406A-B4B8-C4468C90897E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3153F200-0915-406A-B4B8-C4468C90897E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3153F200-0915-406A-B4B8-C4468C90897E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3153F200-0915-406A-B4B8-C4468C90897E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B8353654-EDF8-451D-882E-793BAB865AA0}
+		SolutionGuid = {6D29BBB6-BC01-492A-AC7F-7CF253A03F6E}
 	EndGlobalSection
 EndGlobal

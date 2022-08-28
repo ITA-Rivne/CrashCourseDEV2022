@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cheburashka
 {
-    class Dog : IPerson
+    internal class Constract
     {
     }
 }
