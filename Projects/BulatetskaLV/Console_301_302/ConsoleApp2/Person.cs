@@ -21,6 +21,7 @@ namespace ConsoleApp2
             this.gender = gender;
             this.phone = phone;
         }
+
         string Info()
         {
             string s = "Вік -> " + this.age + "\nСтать -> " + this.gender+ "\nНомер телефону -> " + this.phone;
@@ -29,7 +30,7 @@ namespace ConsoleApp2
 
         public void Print()
         {
-            Console.WriteLine(this.age);
+            Console.WriteLine(Info());
         }
 
     }

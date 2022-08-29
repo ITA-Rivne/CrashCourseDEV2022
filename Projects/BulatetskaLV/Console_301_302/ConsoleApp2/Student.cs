@@ -8,10 +8,10 @@ namespace ConsoleApp2
 {
   public  class Student
     {
-        public string name; // Прізвище та ім'я
-        public int course; // Курс
-        public string numberBook; // Номер залікової книжки
-        public string phone;
+        private string name; // Прізвище та ім'я
+        private int course; // Курс
+        private string numberBook; // Номер залікової книжки
+        private string phone;
 
         public Student(string name, int course, string numberBook)
         {
@@ -32,12 +32,28 @@ namespace ConsoleApp2
             this.course = 1;
             this.numberBook = numberBook;
         }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
 
+        public int Course
+        {
+            get { return course; }
+            set { course = value; }
+        }
+
+        public string NumberBook
+        {
+            get { return numberBook; }
+            set { numberBook = value; }
+        }
         public void infoPrint()
         {
            Console.WriteLine($"Name = {name}");
-            Console.WriteLine($"Course = {course}");
-            Console.WriteLine($"namberBook = {numberBook}");
+           Console.WriteLine($"Course = {course}");
+           Console.WriteLine($"namberBook = {numberBook}");
         }
 
 
