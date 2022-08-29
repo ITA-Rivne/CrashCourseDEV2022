@@ -17,6 +17,10 @@ namespace ConsoleApp2
             Aspirant a=new Aspirant("Semenyuk Olena", 1, "1222222", "Database");
             a.infoPrint();
             Console.ReadLine();
+
+            Person p= new Person(10, "female", 121);
+            p.Print();
+            Console.ReadLine();
         }
     }
 }
