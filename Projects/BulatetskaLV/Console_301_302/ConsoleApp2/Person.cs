@@ -8,15 +8,18 @@ namespace ConsoleApp2
 {
     class Person
     {
-        //  мені, віку, статі і телефонного номера.
+        // Розробити клас Person, який містить відповідні члени для зберігання:
+        // імені, віку, статі і телефонного номера.
         //  Напишіть функції-члени, які зможуть змінювати ці члени даних індивідуально.
         //  Напишіть функцію-член Person :: Print ()
+       private string name;
        private int age;
        private string gender;
        private int phone;
 
-        public Person(int age, string gender, int phone)
+        public Person(string name, int age, string gender, int phone)
         {
+            this.name = name;
             this.age = age;
             this.gender = gender;
             this.phone = phone;
@@ -24,7 +27,7 @@ namespace ConsoleApp2
 
         string Info()
         {
-            string s = "Вік -> " + this.age + "\nСтать -> " + this.gender+ "\nНомер телефону -> " + this.phone;
+            string s = $"Ім'я -> {this.name} \nВік ->  {this.age} \nСтать -> {this.gender} \nНомер телефону ->   {this.phone}";
             return s ;
         }
 

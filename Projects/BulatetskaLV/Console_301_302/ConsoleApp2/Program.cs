@@ -18,7 +18,7 @@ namespace ConsoleApp2
             a.infoPrint();
             Console.ReadLine();
 
-            Person p= new Person(10, "female", 121);
+            Person p= new Person("Olena", 10, "female", 121);
             p.Print();
             Console.ReadLine();
         }
