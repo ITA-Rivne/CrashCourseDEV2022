@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    class Wolf
+    internal class Wolf : IAnimal
     {
+        public string name { get; set; }
+
+        public string GetMesssage()
+        {
+            return $"Моя сила = {this.strenght}, швидкість = {this.speed} \n";
+        }
+
+        // -------------------
+
+
         public int strenght;
         public int speed;
-        public string name;
+      
 
         public Wolf(String name, int strenghtIndex = 1)
         {
@@ -22,14 +32,14 @@ namespace Team1_WpfApp.Fairytale
             //Console.WriteLine("Я " + name);
             //Console.WriteLine($"Моя сила = {this.strenght}, швидкість = {this.speed} \n");
 
-        }
+        }        
 
         public string destructionBuilding(Building house)
         {
             if (strenght > house.buildingSolidity())
             {
                 house.buildingStatus = false;
-                return $"Я знищив {house.buildingName} \n";
+                return $"Я знищив {house.name} \n";
             }
             else
             {
@@ -38,10 +48,9 @@ namespace Team1_WpfApp.Fairytale
         
         }
 
-        public override string ToString()
+        public void move(int distance)
         {
-            return $"Я {this.name}  \n" +
-                   $"Моя сила = {this.strenght}, швидкість = {this.speed} \n";
-        }
+            throw new NotImplementedException();
+        }        
     }
 }

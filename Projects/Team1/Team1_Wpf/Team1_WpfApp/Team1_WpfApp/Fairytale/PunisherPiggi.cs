@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    class PunisherPiggi: Piggi //супер-порося, яке карає вовка, коли він зїдає порося
+    class PunisherPiggi : Piggi //супер-порося, яке карає вовка, коли він зїдає порося
     {
-        String name;
-        public PunisherPiggi(String name):base(name)
-        {
-            this.name = name;
-
+        public PunisherPiggi(string name):base(name)
+        {           
         }
 
         public string punishTheWolf(Wolf wolf, int countDeadPiggi = 0)
@@ -31,9 +28,9 @@ namespace Team1_WpfApp.Fairytale
 
         }
 
-        public override string ToString()
+        public override string GetMesssage()
         {
-            return $"Я {this.name}  \n";               
+            return $"Я {this.name}  \n";
         }
 
     }

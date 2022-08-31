@@ -9,7 +9,16 @@ namespace Team1_WpfApp.Fairytale
 {
     public class Building : IBuilding
     {
-        public string buildingName;        
+        public string name { get; set; }
+
+        public string GetMesssage()
+        {
+            return $"Я називаю свій будиночок '{this.name}'!\n" +
+                  $"Він має міцність {this.buildingSolidity()} \n";
+        }
+
+        // ----------
+
         public bool buildingStatus = true; // whether it is intact or destroyed
 
         private IMaterial _base;
@@ -18,22 +27,17 @@ namespace Team1_WpfApp.Fairytale
 
         public Building(string buildingName, IMaterial _base, IMaterial wall, IMaterial roof)
         {
-            this.buildingName = buildingName;
+            this.name = buildingName;
             this._base = _base;
             this.wall = wall;
             this.roof = roof;
-        }
-
-        public override string ToString()
-        {
-            return $"Я називаю свій будиночок '{this.buildingName}'!\n" +
-                   $"Він має міцність {this.buildingSolidity()} \n";
-        }
+        }       
 
         public int buildingSolidity()
         {
             return _base.Strength + wall.Strength + roof.Strength;
         }
 
+       
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    internal interface IBuilding : IEntity, IInformatible
+    internal interface IEntity
     {
+        string name { get; set; }
     }
 }

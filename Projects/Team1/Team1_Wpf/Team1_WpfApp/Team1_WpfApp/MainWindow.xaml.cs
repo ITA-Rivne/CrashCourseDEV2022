@@ -85,16 +85,16 @@ namespace Team1_WpfApp
 
             foreach (var piggi in piglets)
             {
-                log.Append(piggi.ToString());
+                log.Append(piggi.GetMesssage());
                 piggi.buildHouse();                
-                log.Append(piggi.myHouse.ToString());
+                log.Append(piggi.myHouse.GetMesssage());
                 log.Append("---------------------------------------------------------------\n");
             }
 
             // 3. Вовка чекає поки не зголодніє і приходить до першого поросята
 
             var wolf = new Wolf("Вовк", 10);
-            log.Append(wolf.ToString());
+            log.Append(wolf.GetMesssage());
 
             //      - дихає на будинок скільки є сил, якщо розвалив, то їсть та йде до наступного поросяти
             int deadPiggiCount = 0;
@@ -119,7 +119,7 @@ namespace Team1_WpfApp
             log.Append("---------------------------------------------------------------\n");
 
             PunisherPiggi superPiggi = new PunisherPiggi("Cупер порося");
-            log.Append(superPiggi.ToString());
+            log.Append(superPiggi.GetMesssage());
 
             string status = superPiggi.punishTheWolf(wolf, deadPiggiCount);
             log.Append(status);

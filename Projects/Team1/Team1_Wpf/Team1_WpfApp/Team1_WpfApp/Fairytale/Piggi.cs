@@ -7,9 +7,18 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    class Piggi : IAnimal,IPiggi
+    class Piggi : IAnimal, IPiggi
     {
-        public string name;
+        public string name { get; set; }
+
+        public virtual string GetMesssage()
+        {
+            return $"Я {this.name}  \n" +
+                   $"Моя хитрість = {this.smart}, швидкість = {this.speed}  сила = {this.power} \n";
+        }
+
+        // -------------
+
         int smart; // рівень розуму поросятка (від 1 до 10)
         int power; // рівень сили поросятка (від 1 до 10)
         int speed; // рівень швидкості поросятка (від 1 до 10)
@@ -19,7 +28,7 @@ namespace Team1_WpfApp.Fairytale
 
         bool died = false;
         bool vtik = false;
-        int BaseDistance;
+        int BaseDistance;        
 
         public Piggi(String name, int smartIndex = 1)
         {
@@ -56,12 +65,6 @@ namespace Team1_WpfApp.Fairytale
             else
                 return false;
         }
-        public override string ToString()
-        {
-            return $"Я {this.name}  \n" +
-                   $"Моя хитрість = {this.smart}, швидкість = {this.speed}  сила = {this.power} \n";            
-        }
-
 
         public void funny()
         {
