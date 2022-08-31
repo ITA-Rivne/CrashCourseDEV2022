@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    interface IAnimal
+    interface IAnimal : IEntity, IInformatible
     {
         void move(int distance);
     }
