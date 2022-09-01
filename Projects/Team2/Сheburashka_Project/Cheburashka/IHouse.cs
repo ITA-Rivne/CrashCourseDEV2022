@@ -10,7 +10,8 @@ namespace Cheburashka
     {
         int Number_floors { set; get; }
         int Number_windows { set; get; }
-        void Build(string str);
+        void Build(IPerson person, string str);
+
 
     }
 }

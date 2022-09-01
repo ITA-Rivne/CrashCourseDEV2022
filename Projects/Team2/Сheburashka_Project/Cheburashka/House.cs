@@ -8,12 +8,18 @@ namespace Cheburashka
 {
     class House : IHouse
     {
-        public int Number_floors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int Number_windows { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int Number_floors { get; set; }
+        public int Number_windows { get; set; }
 
-        public void Build(string str)
+        public House(int nf, int nw)
         {
-            throw new NotImplementedException();
+            Number_floors = nf;
+            Number_windows = nw;
         }
+        public void Build(IPerson person, string str)
+        {
+            Console.WriteLine(str + " " + person.Name);
+        }
+
     }
 }
