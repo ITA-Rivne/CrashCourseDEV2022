@@ -29,9 +29,6 @@ namespace DialPhone.ViewModels
 					_inputString = value;
 					OnPropertyChanged();
 					DisplayText = FormatText(_inputString);
-
-					// Perhaps the delete button must be enabled/disabled.
-					//((BaseCommand)DeleteCharCommand).CanExecute();
 				}
 			}
 		}
