@@ -11,10 +11,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" x:Name="ButtonStart" HorizontalAlignment="Center" Height="60" Margin="0,10,0,0" VerticalAlignment="Top" Width="700" FontSize="22" Click="ButtonStart_Click">
+        <Button Grid.Row="0" x:Name="ButtonStart" HorizontalAlignment="Center" Height="60" Margin="0,10,0,0" VerticalAlignment="Top" Width="700" FontSize="22" Command="{Binding MyCommand}">
             <Button.Content>Start the fairy tale "The Three Little Pigs".</Button.Content>
-        </Button>        
-        <TextBox Grid.Row="1" x:Name="TextBlockLog"  TextWrapping="Wrap" Text="" FontSize="14" HorizontalAlignment="Center" Width="700"  Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        </Button>
+        <TextBox Grid.Row="1" x:Name="TextBlockLog"  TextWrapping="Wrap" Text="{Binding DisplayText}" FontSize="14" HorizontalAlignment="Center" Width="700"  Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
          ScrollViewer.VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Window>
