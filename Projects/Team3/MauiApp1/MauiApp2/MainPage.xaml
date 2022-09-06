@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.MainPage"
+              xmlns:local="clr-namespace:MauiApp2">
+
+    <ScrollView>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+               
+                <ColumnDefinition Width="*"></ColumnDefinition>
+               
+            </Grid.ColumnDefinitions>
+            <Border StrokeThickness="4" BackgroundColor="Aquamarine">
+            <Label
+                Grid.Row="0" Grid.Column="0"
+                Text="Air Conditioner"
+                FontSize="24"
+                HorizontalOptions="Center" 
+               />
+            </Border>
+
+            <!--<Border StrokeThickness="4" BackgroundColor="Gray"   Grid.Row="0" Grid.Column="2">-->
+                <Label
+                Text="Lamp"
+                FontSize="24"
+                HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    BackgroundColor="Gray" 
+                />
+            <!--</Border>-->
+
+            <Frame Grid.Row="2">
+                <Label Text="{Binding Temperature}"></Label>
+            </Frame>
+            <Button
+                Grid.Row="3" Grid.Column="0"
+                x:Name="BtnRun"
+                Text="Run"
+                SemanticProperties.Hint="Run House"
+                
+                HorizontalOptions="Fill" 
+                Clicked="BtnRun_Clicked"
+                />
+            <Button
+                Grid.Row="3" Grid.Column="1"
+                x:Name="BtnNext"
+                Text="Next step"
+                SemanticProperties.Hint="Next Step"
+                
+                HorizontalOptions="Fill" 
+                Command="{Binding ChangeTemper}"
+                />
+
+        </Grid>
+        
+    </ScrollView>
+
+</ContentPage>
