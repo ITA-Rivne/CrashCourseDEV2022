@@ -33,7 +33,7 @@ namespace Lesson4
         [Order(1)] // порядок виконання тестів
         public void TestCalculateVolume()
         {
-            //Assert.Pass();
+
 
             //Given
             Console.WriteLine("TestCalculateVolume() execution");

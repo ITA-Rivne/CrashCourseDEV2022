@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Animal.cs" />
     <Compile Include="IEatable.cs" />
+    <Compile Include="ISpeakable.cs" />
     <Compile Include="Kolobok.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />

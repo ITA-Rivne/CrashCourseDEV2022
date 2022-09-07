@@ -51,6 +51,9 @@ namespace Fairytale
                 //б) об'єкт колобок передаємо параметром для rabbit.Eat(myKolobok)
 
                 var rabbit = new Rabbit("Зайчик");
+
+                rabbit.IntroduceYourself(kolobok);
+
                 rabbit.Eat(ref kolobok);
 
                 #endregion
@@ -59,6 +62,7 @@ namespace Fairytale
                 //a) об'єкт колобок передаємо параметром для volf.Eat(myKolobok)
 
                 var volf = new Volf("Вовк");
+                kolobok.IntroduceYourself(volf);
                 volf.Eat(ref kolobok);
 
                 #endregion
@@ -67,6 +71,10 @@ namespace Fairytale
                 //a) об'єкт колобок передаємо параметром для bear.Eat(myKolobok)
 
                 var bear = new Bear("Ведмідь");
+                bear.SayHello();
+                bear.IntroduceYourself();
+
+                bear.SpeakMessage("Я тебе з'їм! ");
                 bear.Eat(ref kolobok);
 
                 #endregion
@@ -95,22 +103,4 @@ namespace Fairytale
             Console.ReadLine();
         }
     }
-
-    public static async Task JSONSerializationExample(List<Animal> animalsCollection)
-    {
-        Console.WriteLine($"---------------JSONSerializationExample----------------");
-
-        // збереження данных
-        using (var fileStream = new FileStream("animalsCollection.json", FileMode.OpenOrCreate))
-        {
-            //серіалізація в Json
-            string jsonString = JsonConvert.SerializeObject(animalsCollection);
-            Console.WriteLine(jsonString);
-
-            // конвертуємо в байти і записуємо в файл
-            byte[] array = System.Text.Encoding.Default.GetBytes(jsonString);
-
-            fileStream.Write(array, 0, array.Length);
-            Console.WriteLine("Data has been saved to file");
-        }
-    }
+}

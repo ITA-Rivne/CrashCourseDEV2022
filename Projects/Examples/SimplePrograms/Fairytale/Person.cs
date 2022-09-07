@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fairytale
 {
-    public class Person : IEatable
+    public class Person : IEatable, ISpeakable
     {
 
         public int cunning;
@@ -47,6 +47,21 @@ namespace Fairytale
                 kolobok.RunAway(this.name);
             }
             return kolobok;
-        }        
+        }
+
+        public string IntroduceYourself(ISpeakable person)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SayHello()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SpeakMessage(string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

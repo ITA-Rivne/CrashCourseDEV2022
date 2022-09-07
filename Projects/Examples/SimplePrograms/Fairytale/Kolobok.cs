@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fairytale
 {
-    public class Kolobok
+    public class Kolobok : ISpeakable
     {
         // клас Kolobok
         // колобок вміє співати пісню, утікати = два методи
@@ -26,6 +26,20 @@ namespace Fairytale
 
             Console.WriteLine("Привіт! Я Колобок");
             Console.WriteLine($"Моя хитрість = {this.cunning}; Моя швидкість = {this.speed} \n");
+        }
+
+
+        public string SayHello()
+        {
+            return "Привіт! ";
+        }
+
+        public string IntroduceYourself(ISpeakable person = null) => SpeakMessage("Мене звати Колобок");
+
+        public string SpeakMessage(string message)
+        {
+            Console.WriteLine(message);
+            return message;
         }
 
         public Kolobok RunAway(string person)

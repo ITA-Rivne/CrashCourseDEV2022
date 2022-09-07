@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fairytale
 {
-    public class Animal : IEatable
+    public abstract class Animal : IEatable
     {
         public string name;
         public int cunning;
