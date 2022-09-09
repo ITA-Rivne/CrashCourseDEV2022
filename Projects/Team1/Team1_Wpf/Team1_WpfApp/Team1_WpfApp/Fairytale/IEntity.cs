@@ -8,6 +8,6 @@ namespace Team1_WpfApp.Fairytale
 {
     internal interface IEntity
     {
-        string name { get; set; }
+        string Name { get; set; }
     }
 }

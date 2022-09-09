@@ -1,19 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO.Packaging;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    class Piggi : IAnimal, IPiggi
+    public class Piggi : IAnimal, IPiggi, INotifyPropertyChanged
     {
-        public string name { get; set; }
+        //public string Name { get; set; }
+        private string _name;
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged("Name");
+            }
+        }
 
         public virtual string GetMesssage()
         {
-            return $"Я {this.name}  \n" +
+            return $"Я {this.Name}  \n" +
                    $"Моя хитрість = {this.smart}, швидкість = {this.speed}  сила = {this.power} \n";
         }
 
@@ -32,7 +45,7 @@ namespace Team1_WpfApp.Fairytale
 
         public Piggi(String name, int smartIndex = 1)
         {
-            this.name = name;
+            this._name = name;
             Random r = new Random(smartIndex);
             this.smart = r.Next(1, 10)* smartIndex;
             this.power = r.Next(1, 10);
@@ -55,7 +68,7 @@ namespace Team1_WpfApp.Fairytale
             var roof = new Material("Солома");
             roof.Strength = speed * 10;
 
-            myHouse = new Building($"Дім {name}a", _base, wall, roof);
+            myHouse = new Building($"Дім {_name}a", _base, wall, roof);
         }
 
         public bool catched(int rivalspeed)
@@ -79,6 +92,13 @@ namespace Team1_WpfApp.Fairytale
             distance += speed;
             Console.WriteLine("Я пройшов ще " + speed + " метрів.");
 
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Team1_WpfApp.Fairytale
 {
     internal class Wolf : IAnimal
     {
-        public string name { get; set; }
+        public string Name { get; set; }
 
         public string GetMesssage()
         {
@@ -24,12 +24,12 @@ namespace Team1_WpfApp.Fairytale
 
         public Wolf(String name, int strenghtIndex = 1)
         {
-            this.name = name;
+            this.Name = name;
             Random r = new Random(strenghtIndex);
             this.strenght = r.Next(1, 10) * strenghtIndex;
             this.speed = r.Next(1, 10);
 
-            //Console.WriteLine("Я " + name);
+            //Console.WriteLine("Я " + Name);
             //Console.WriteLine($"Моя сила = {this.strenght}, швидкість = {this.speed} \n");
 
         }        
@@ -39,11 +39,11 @@ namespace Team1_WpfApp.Fairytale
             if (strenght > house.buildingSolidity())
             {
                 house.buildingStatus = false;
-                return $"Я знищив {house.name} \n";
+                return $"Я знищив {house.Name} \n";
             }
             else
             {
-                return $"Будинок має міцність {house.buildingSolidity()} мені не хватає сили {strenght} \n";                
+                return $"{house.Name} має міцність {house.buildingSolidity()}, мені не хватає сили {strenght} \n";                
             }
         
         }

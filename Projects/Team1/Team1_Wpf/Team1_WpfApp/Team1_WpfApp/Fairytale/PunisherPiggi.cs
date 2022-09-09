@@ -17,10 +17,10 @@ namespace Team1_WpfApp.Fairytale
         {
             if (countDeadPiggi >= 3)
             {
-                return $"Я {wolf.name} прийшов покарати вовка за те, що він з'їв всіх поросят!";
+                return $"Я {wolf.Name} прийшов покарати вовка за те, що він з'їв всіх поросят!";
             }
             else
-                return $"{wolf.name} втік у ліс";
+                return $"{wolf.Name} втік у ліс";
 
             //            WolflevelOfHungry -= 20;
             //Console.WriteLine("Тепер у тебе життів "+ WolflevelOfHungry);
@@ -30,7 +30,7 @@ namespace Team1_WpfApp.Fairytale
 
         public override string GetMesssage()
         {
-            return $"Я {this.name}  \n";
+            return $"Я {this.Name}  \n";
         }
 
     }
