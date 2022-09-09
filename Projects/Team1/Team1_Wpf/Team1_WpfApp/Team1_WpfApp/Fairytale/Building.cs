@@ -9,11 +9,11 @@ namespace Team1_WpfApp.Fairytale
 {
     public class Building : IBuilding
     {
-        public string name { get; set; }
+        public string Name { get; set; }
 
         public string GetMesssage()
         {
-            return $"Я називаю свій будиночок '{this.name}'!\n" +
+            return $"Я називаю свій будиночок '{this.Name}'!\n" +
                   $"Він має міцність {this.buildingSolidity()} \n";
         }
 
@@ -27,7 +27,7 @@ namespace Team1_WpfApp.Fairytale
 
         public Building(string buildingName, IMaterial _base, IMaterial wall, IMaterial roof)
         {
-            this.name = buildingName;
+            this.Name = buildingName;
             this._base = _base;
             this.wall = wall;
             this.roof = roof;

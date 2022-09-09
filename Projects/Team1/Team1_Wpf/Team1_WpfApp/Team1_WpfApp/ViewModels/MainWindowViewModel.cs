@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Input;
 using Team1_WpfApp.Command;
 using Team1_WpfApp.Fairytale;
@@ -12,16 +14,46 @@ namespace Team1_WpfApp.ViewModels
 {
 	public class MainWindowViewModel : INotifyPropertyChanged
 	{
-		public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private string displayText;
+        private string actionLog;
+        private string piggyName;
+
+        private Piggi? selectedPiggi { get; set; }
+
+        public ObservableCollection<Piggi> pigletsList { get; set; }
 
         public RelayCommand MyCommand
         {
             get;
             private set;
         }
-                
+
+        // команда добавления нового объекта
+        RelayCommand? addPiggi;
+        public RelayCommand AddPiggi
+        {
+            get
+            {
+                return addPiggi ??
+                  (addPiggi = new RelayCommand(obj =>
+                  {
+
+                      if (piggyName is null || piggyName == String.Empty) piggyName = "Tip - top";
+                      Piggi piggi = new(piggyName, pigletsList.Count + 1);
+                      pigletsList.Add(piggi);
+                      SelectedPiggi = piggi;
+                  }));
+            }
+        }
+
+        public RelayCommand selectPiggi
+        {
+            get;
+            private set;
+        }     
+
         public string DisplayText
 		{
 			get
@@ -38,7 +70,49 @@ namespace Team1_WpfApp.ViewModels
 			}
 		}
 
-		public MainWindowViewModel()
+        public string ActionLog
+        {
+            get
+            {
+                return actionLog;
+            }
+            set
+            {
+                if (actionLog != value)
+                {
+                    actionLog = value;
+                    OnPropertyChanged("ActionLog");
+                }
+            }
+        }
+
+        public string PiggyName
+        {
+            get
+            {
+                return piggyName;
+            }
+            set
+            {
+                if (piggyName != value)
+                {
+                    piggyName = value;
+                    OnPropertyChanged("PiggyName");
+                }
+            }
+        }
+
+        public Piggi? SelectedPiggi
+        {
+            get { return selectedPiggi; }
+            set
+            {
+                selectedPiggi = value;
+                OnPropertyChanged("SelectedPiggi");
+            }
+        }
+
+        public MainWindowViewModel()
 		{
             // Казка "Троє поросят"
 
@@ -80,33 +154,38 @@ namespace Team1_WpfApp.ViewModels
 
             #endregion
 
-                        
+            // 1. Поросята відпочивають, їм генеруються скіли.
+            // створити по одному
+            pigletsList = new ObservableCollection<Piggi>()
+            {                           
+                new Piggi("Ніф-Ніф", 1),
+                new Piggi("Наф-Наф", 2),
+                new Piggi("Нуф-Нуф", 3)
+            };
+            
             MyCommand = new RelayCommand(obj => { StartFairyTale(); });
+            selectPiggi = new RelayCommand(obj =>
+            {
+                if (SelectedPiggi != null)
+                    ActionLog = SelectedPiggi.GetMesssage();
+            });
 
         }
 
         public void StartFairyTale()
         {
+            DisplayText = "";
             StringBuilder log = new StringBuilder();
             #region 4. Сценарій
 
-            // 1. Поросята відпочивають, їм генеруються скіли.
-
-            List<Piggi> piglets = new List<Piggi>() {
-                    new Piggi("Ніф-Ніф", 1),
-                    new Piggi("Наф-Наф", 2),
-                    new Piggi("Нуф-Нуф", 3)
-            };
-
-
             // 2. Будуємо будинки - вибір матеріалів випадковий, в залежності від скілів поросят
 
-            foreach (var piggi in piglets)
+            foreach (var piggi in pigletsList)
             {
-                log.Append(piggi.GetMesssage());
+                //log.Append(piggi.GetMesssage());
                 piggi.buildHouse();
                 log.Append(piggi.myHouse.GetMesssage());
-                log.Append("---------------------------------------------------------------\n");
+                log.Append("-------------------------------------------\n");
             }
 
             // 3. Вовка чекає поки не зголодніє і приходить до першого поросята
@@ -116,7 +195,7 @@ namespace Team1_WpfApp.ViewModels
 
             //      - дихає на будинок скільки є сил, якщо розвалив, то їсть та йде до наступного поросяти
             int deadPiggiCount = 0;
-            foreach (var piggi in piglets)
+            foreach (var piggi in pigletsList)
             {
                 log.Append(wolf.destructionBuilding(piggi.myHouse));
 
@@ -124,10 +203,10 @@ namespace Team1_WpfApp.ViewModels
                     if (piggi.catched(wolf.speed))
                     {
                         deadPiggiCount++;
-                        log.Append($"Я з'їв {piggi.name} \n");
+                        log.Append($"Я з'їв {piggi.Name} \n");
                     }
                     else
-                        log.Append($"{piggi.name} втік\n");
+                        log.Append($"{piggi.Name} втік\n");
 
             }
             //      - намагається обдурити, якщо так, то їсть та йде до наступного поросяти
@@ -148,9 +227,10 @@ namespace Team1_WpfApp.ViewModels
 
         }
 
-        public void OnPropertyChanged([CallerMemberName] string name = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-		}
-	}
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+    }
 }
