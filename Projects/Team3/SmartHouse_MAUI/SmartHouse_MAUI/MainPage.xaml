@@ -5,8 +5,89 @@
              Title="Smart Home">
 
     <ScrollView>
-        
-          
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <!--<RowDefinition Height="50"></RowDefinition>-->
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <BoxView Color="CadetBlue" Grid.Column="2" Grid.RowSpan="4"></BoxView>
+
+            <!--<Label
+                Grid.Row="0" Grid.Column="0"
+                Text="{Binding AirConditionerMode, StringFormat='Air  Condition : {0}'}"    DOES NOT WORK BINDING ???
+                FontSize="24"
+                HorizontalOptions="Fill" 
+                BackgroundColor="{StaticResource Key=Blue100Accent}"
+                TextColor="White"
+               />-->
+            <Label
+                Grid.Row="0" Grid.Column="0"
+                Text="Air Conditioner"
+                FontSize="24"
+                HorizontalOptions="Fill" 
+                BackgroundColor="{StaticResource Key=Blue100Accent}"
+                TextColor="White"
+               />
+
+            <!--<Border StrokeThickness="4" BackgroundColor="Gray"   Grid.Row="0" Grid.Column="2">-->
+            <Label
+                Text="Lamp"
+                FontSize="24"
+                HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1"
+                    BackgroundColor="{StaticResource Gray400}"
+                    TextColor="White"
+                />
+
+            <Frame Grid.Row="1">
+                <ScrollView  Grid.Row="1" HeightRequest="400">
+                    <Label Text="{Binding Info}"></Label>
+                </ScrollView>
+            </Frame>
+
+            <Frame Grid.Row="2">
+                <Label Text="{Binding Temperature, StringFormat='House temperature : {0} C'} "  FontSize="14"></Label>
+            </Frame>
+            <!--<Slider Value="{Binding Temperature}" Maximum= "50" Minimum="-50" Grid.Row = "3" Grid.Column="0"></Slider>-->
+            <Frame  Grid.Row = "3" Grid.Column="0">
+                <Label Text="{Binding OuterTemperature, StringFormat ='Outer temperature : {0} C'}"  FontSize="14"></Label>
+            </Frame>
+
+            <!--<Label Text="{Binding TestInfo}" TextColor="Red" Grid.Row = "5" Grid.Column="0">
+            </Label>-->
+
+            <Button
+                Grid.Row="4" Grid.Column="0"
+                x:Name="BtnRun"
+                Text="Run"
+                SemanticProperties.Hint="Run House"
+                HorizontalOptions="Fill" 
+                Command="{Binding Run}"
+                />
+            <Button
+                Grid.Row="4" Grid.Column="1"
+                x:Name="BtnNext"
+                Text="Next step"
+                SemanticProperties.Hint="Next Step"
+                
+                HorizontalOptions="Fill" 
+                Command="{Binding ChangeTemper}"
+                />
+
+        </Grid>
+
+
     </ScrollView>
 
 </ContentPage>

@@ -1,13 +1,19 @@
-﻿namespace SmartHouse_MAUI;
+﻿using SmartHouse_MAU.ViewModel;
+
+namespace SmartHouse_MAUI;
 
 public partial class MainPage : ContentPage
 {
-	
 
-	public MainPage()
+    HouseViewModel houseViewModel;
+    public MainPage()
 	{
 		InitializeComponent();
-	}
+        houseViewModel = new HouseViewModel() { Temperature = -44 };
+        // houseViewModel = new HouseViewModel() ;// start temp = 20
+        houseViewModel.OuterTemperature = 20;
+        this.BindingContext = houseViewModel;
+    }
 
 	
 }

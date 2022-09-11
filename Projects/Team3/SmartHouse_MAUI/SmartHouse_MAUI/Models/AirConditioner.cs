@@ -46,17 +46,18 @@ namespace SmartHouse_MAU.Models
                         break;
                     case NeedsRegime.NeedWarm:
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air heating");
-                        Info += $"\t\tNow {h.Temperature} C\u00b0 --> Air heating\n\r";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Air heating\n\r";
                         Mode = AirCondMode.Warm;
                         h.Temperature += _delta;
                         break;
                     case NeedsRegime.NeedOutFire:
-                        Info += $"\t\tNow {h.Temperature} C\u00b0 --> Dangerous(> 50)\n\r";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Dangerous(> 50)\n\r";
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Dangerous of fire!!!!");
                         Mode = AirCondMode.Cool;
                         break;
                     default: // Normal
                              // Info = "";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Normal\n\r";
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Normal!!!!");
                         Mode = AirCondMode.Normal;
                         break;

@@ -149,6 +149,10 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="14" />
+        <!--<Setter Property="HorizontalTextAlignment" Value="Center"/>-->   <!--added-->
+        <Setter Property="Padding" Value="15,0,0,0"></Setter> <!--ADDED-->
+        <Setter Property="VerticalTextAlignment" Value="Center"/>   <!--added-->
+        <Setter Property="TextColor" Value="{StaticResource Gray900}"/>    <!--added-->
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
