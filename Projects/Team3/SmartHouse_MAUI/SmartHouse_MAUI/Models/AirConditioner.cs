@@ -31,7 +31,7 @@ namespace SmartHouse_MAU.Models
         //}
         public void Handler(object o, EventArgs e)
         {
-            if (IsOn())
+            if (On)
             {
                 House h = o as House;
                 NeedsRegimeEventArgs ne = e as NeedsRegimeEventArgs;

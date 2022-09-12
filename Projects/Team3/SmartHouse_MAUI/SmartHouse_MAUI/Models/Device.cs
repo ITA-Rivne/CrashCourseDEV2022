@@ -11,7 +11,13 @@ namespace SmartHouse_MAU.Models
         int _id = ++lastId; //id
         static int lastId = 0;//count devices in house
         bool _on = false;
-        public bool IsOn() => _on;
+         // public bool IsOn() => _on;
+        public bool On {
+            get => _on;
+            set => _on = value;
+
+        }
+
         public void Power()
         {
             _on = !_on;
