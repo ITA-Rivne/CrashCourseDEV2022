@@ -25,7 +25,17 @@
 
         <Image x:Name="image" Opacity="0.7" HorizontalAlignment="Left" Height="85" Margin="533,339,0,0" VerticalAlignment="Top" Width="84"/>
         <Label x:Name="label_2"  HorizontalAlignment="Left" Margin="639,349,0,0" VerticalAlignment="Top" Width="161" Height="85"/>
-    
+
+
+        <Image x:Name="image_base" Opacity="0.7" HorizontalAlignment="Left" Margin="258,308,0,83"  Width="266" Source="Images/base.png"/>
+        <Image x:Name="image_1t" Opacity="0.7" HorizontalAlignment="Left" Margin="260,141,0,109"  Width="270" Source="Images/1t.png"/>
+        <Image x:Name="image_2t" Opacity="0.7" HorizontalAlignment="Left" Margin="261,26,0,229"  Width="260" Source="Images/2t.png"/>
+        <Image x:Name="image_roof" Opacity="0.7" HorizontalAlignment="Left" Margin="236,-40,0,295"  Width="305" Source="Images/roof.png"/>
+        <Image x:Name="image_win1" Opacity="0.7" HorizontalAlignment="Left" Margin="385,193,0,158"  Width="101" Source="Images/window.png"/>
+        <Image x:Name="image_win2" Opacity="0.7" HorizontalAlignment="Left" Margin="388,77,0,280"  Width="98" Source="Images/window.png"/>
+        <Image x:Name="image_win3" Opacity="0.7" HorizontalAlignment="Left" Margin="274,77,0,280"  Width="92" Source="Images/window.png"/>
+        <Image x:Name="image_door" Opacity="0.7" HorizontalAlignment="Left" Margin="289,205,0,117"  Width="58" Source="Images/door.png"/>
+
     </Grid>
 
 </Window>
