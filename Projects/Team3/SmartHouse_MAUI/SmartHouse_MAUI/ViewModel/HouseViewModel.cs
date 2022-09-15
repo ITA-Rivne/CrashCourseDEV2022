@@ -102,6 +102,7 @@ namespace SmartHouse_MAU.ViewModel
             OuterTemperature = 20;
             Temperature = OuterTemperature;
             Info = "OPENED ";
+            // !!!!!! add some code Lamp
         }
         public void OnPropertyChanged(string prop = "")
         {

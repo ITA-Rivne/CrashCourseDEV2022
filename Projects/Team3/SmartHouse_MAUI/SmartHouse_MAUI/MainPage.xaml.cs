@@ -9,8 +9,8 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
-        houseViewModel = new HouseViewModel() { Temperature = -44 };
-        // houseViewModel = new HouseViewModel() ;// start temp = 20
+        //houseViewModel = new HouseViewModel() { Temperature = -44 };
+        houseViewModel = new HouseViewModel() ;// start temp = 20
         houseViewModel.OuterTemperature = 20;
         this.BindingContext = houseViewModel;
     }
