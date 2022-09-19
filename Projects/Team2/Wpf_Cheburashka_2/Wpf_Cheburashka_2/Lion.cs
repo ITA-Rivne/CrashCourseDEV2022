@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Wpf_Cheburashka_2;
 
 namespace Cheburaska_Pattern
@@ -14,6 +15,7 @@ namespace Cheburaska_Pattern
         int count; // кількість будматеріалу, яку може підняти персонаж
         string work; // робота, яку виконує персонаж
         string name;
+        bool h = true;
 
         public string Name
         {
@@ -74,12 +76,24 @@ namespace Cheburaska_Pattern
         public void Say()
         {
             MainWindow mainwindow = (MainWindow)System.Windows.Application.Current.MainWindow;
-            string s = $"Я { this.name}!";
+            string s =""; 
             if (this.count != 0)
             { s = s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
             else { s = s + $"Я не можу підняти стільки, найбільше можу підняти кількістю {this.strong} "; }
 
             ((Label)((Grid)mainwindow.Content).Children[7]).Content = s;
+            mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/lion.jpg"));
+           
+            if(h)
+            {
+                ((Image)((Grid)mainwindow.Content).Children[8]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/base.png"));
+                h = !h;
+            }
+            else
+            {
+                ((Image)((Grid)mainwindow.Content).Children[15]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/door.png"));
+            }
+            
         }
     }
 }

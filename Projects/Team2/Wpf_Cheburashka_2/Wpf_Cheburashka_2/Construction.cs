@@ -12,6 +12,7 @@ using System.Windows.Threading;
 
 using Cheburaska_Pattern;
 using System.Threading;
+using System.Security.Policy;
 
 namespace Wpf_Cheburashka_2
 {
@@ -99,7 +100,7 @@ namespace Wpf_Cheburashka_2
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
             
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -110,7 +111,7 @@ namespace Wpf_Cheburashka_2
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
 
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -121,7 +122,7 @@ namespace Wpf_Cheburashka_2
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
 
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -132,7 +133,7 @@ namespace Wpf_Cheburashka_2
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
 
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             Application.Current.Dispatcher.BeginInvoke(new Action(() =>
             {
@@ -142,42 +143,104 @@ namespace Wpf_Cheburashka_2
 
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+
+            cheburashka.Send("Хто будує фундамент");
+
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/lion.jpg"));
+            }));
+            lion.Send("фундамент", 6);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+
+
+            cheburashka.Send("Хто будує перший поверх");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/gena1.jpg"));
+            }));
+            crocodile.Send("перший поверх", 4);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+
+            cheburashka.Send("Хто будує другий поверх");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/dog.jpg"));
+            }));
+            dog.Send("другий поверх", 7);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+            crocodile.Send("");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/giraffe.jpg"));
+            }));
+            giraffe.Send("другий поверх", 9);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+          
+
+            cheburashka.Send("Хто будує дах");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/giraffe.jpg"));
+            }));
+            giraffe.Send("будую дах", 7);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
             
+
+            cheburashka.Send("Хто вставляє вікна");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/girl.png"));
+            }));
+            girl.Send("Вікно на перший повер", 4);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/man_2.jpg"));
+            }));
+            man.Send("Вікна на другий повер", 6);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+            
+
+            cheburashka.Send("Хто вставляє двері");
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/lion.jpg"));
+            }));
+            lion.Send("Вставляю двері", 9);
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+            Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
+
+
+            Thread.Sleep(3000);
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/lion.jpg"));
+            }));
+            lion.Send("");
+            Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
+
+            cheburashka.Send("Ми будували,\nбудували та побудували.\r\nУра!!!!!\r\n");
+       
         }
 
-        
-   
 
- 
-        //    cheburashka.Send("Хто будує фундамент");
-        //    lion.Send("фундамент", 6);
-        //    man.Send("фундамент", 6);
-        //    cheburashka.Send("Фундамент побудован!");
-
-        //    cheburashka.Send("Хто будує перший поверх");
-        //    crocodile.Send("перший поверх", 4);
-        //    girl.Send("перший поверх", 6);
-        //    cheburashka.Send("Перший поверх побудован!");
-
-
-        //    cheburashka.Send("Хто будує другий поверх");
-        //    dog.Send("другий поверх", 7);
-        //    giraffe.Send("другий поверх", 9);
-        //    cheburashka.Send("Другий поверх побудован!");
-
-        //    cheburashka.Send("Хто вставляє вікна");
-        //    crocodile.Send("Вікна на перший повер", 4);
-        //    girl.Send("Вікна на перший повер", 6);
-        //    dog.Send("Вікна на  другий поверх", 7);
-        //    giraffe.Send("Вікна на  другий поверх", 9);
-        //    cheburashka.Send("Вікна на першому та другому поверхах вставив!");
-
-        //    cheburashka.Send("Хто будує дах");
-        //    dog.Send("Вікна на  другий поверх", 7);
-        //    giraffe.Send("Вікна на  другий поверх", 9);
-        //    cheburashka.Send("Дах побудован!");
-
-        //    crocodile.Send("Гена: А зараз Чебурашка скаже вам промову");
-        //    cheburashka.Send("Чебурашка: Ми будували-будували, і нарешті збудували. Ураааа!");
+       
     }
 }

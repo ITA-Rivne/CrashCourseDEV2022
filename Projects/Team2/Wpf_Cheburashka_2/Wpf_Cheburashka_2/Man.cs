@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using Wpf_Cheburashka_2;
 
 namespace Cheburaska_Pattern
@@ -73,13 +74,17 @@ namespace Cheburaska_Pattern
         public void Say()
         {
             MainWindow mainwindow = (MainWindow)System.Windows.Application.Current.MainWindow;
-            string s = $"Я { this.name}!";
+            string s = $"";
             if (this.count != 0)
             { s = s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
             else { s = s + $"Я не можу підняти стільки, найбільше можу підняти кількістю {this.strong} "; }
 
            ((Label)((Grid)mainwindow.Content).Children[7]).Content = s;
 
+            mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/man_2.jpg"));
+
+            ((Image)((Grid)mainwindow.Content).Children[13]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/window.png"));
+            ((Image)((Grid)mainwindow.Content).Children[14]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/window.png"));
         }
     }
 }

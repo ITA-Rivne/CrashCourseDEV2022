@@ -18,7 +18,7 @@ namespace Cheburaska_Pattern
         string name;
         string work;
         bool f = true;
-
+        bool h = true;
         public string Name
         {
             get => name;
@@ -75,13 +75,20 @@ namespace Cheburaska_Pattern
         public void Say()
         {
             MainWindow mainwindow = (MainWindow)System.Windows.Application.Current.MainWindow;
-            string s = $"Я { this.name}!";
+            string s = "";
             if (this.count != 0)
             { s = s + $"Я будую {this.work} і несу, будматеріал кількістю {this.count} "; }
             else { s = s + $"Я не можу підняти стільки, найбільше можу підняти кількістю {this.strong} "; }
 
             ((Label)((Grid)mainwindow.Content).Children[5]).Content = s;
             
+            if(h)
+            {
+                ((Image)((Grid)mainwindow.Content).Children[9]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/1t.png"));
+                h = !h;
+            }
+            else ((Image)((Grid)mainwindow.Content).Children[9]).Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/door.png"));
+
         }
     }
 }
