@@ -48,6 +48,32 @@ namespace Team1_WpfApp.Fairytale
             Assert.AreEqual(ActualValue, ExpectedValue);
         }
 
+        public void BuildingSolidityTestRez10()
+        {
 
+            //Given
+            Console.WriteLine("TestDestructionBuilding() execution");
+            var wolf = new Wolf("testWolf");
+            wolf.strenght = 5;
+            Material mat_base = new Material("Base");
+            mat_base.Strength = 4;
+            Material mat_wall = new Material("Wall");
+            mat_wall.Strength = 2;
+            Material mat_roof = new Material("Roof");
+            mat_roof.Strength = 4;
+
+            Building testBuilding = new Building("Test House", mat_base, mat_wall, mat_roof);
+
+
+            int ExpectedValue = 10;
+
+            //When
+            //  wolf.destructionBuilding(house);
+
+            var ActualValue = testBuilding.buildingSolidity();
+
+            //Then
+            Assert.AreEqual(ActualValue, ExpectedValue);
+        }
     }
 }
