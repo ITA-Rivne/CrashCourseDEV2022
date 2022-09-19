@@ -34,7 +34,7 @@ namespace Team1_WpfApp.Fairytale
 
         int smart; // рівень розуму поросятка (від 1 до 10)
         int power; // рівень сили поросятка (від 1 до 10)
-        int speed; // рівень швидкості поросятка (від 1 до 10)
+        public int speed; // рівень швидкості поросятка (від 1 до 10)
         int distrLevel; //рівень стійкості будинку до руйнування
 
         public Building myHouse;

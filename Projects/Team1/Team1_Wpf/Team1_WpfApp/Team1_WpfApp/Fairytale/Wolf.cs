@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Team1_WpfApp.Fairytale
 {
-    internal class Wolf : IAnimal
+    public class Wolf : IAnimal
     {
         public string Name { get; set; }
 
