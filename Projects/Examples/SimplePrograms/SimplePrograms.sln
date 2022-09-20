@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson4", "Lesson4\Lesson4.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fairytale", "Fairytale\Fairytale.csproj", "{AF1F0E83-BE3A-4242-AD2E-5B8D5B92E18F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPI", "RestAPI\RestAPI.csproj", "{14BA9811-DA50-48C3-8C14-B4EC08F9475F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF1F0E83-BE3A-4242-AD2E-5B8D5B92E18F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF1F0E83-BE3A-4242-AD2E-5B8D5B92E18F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF1F0E83-BE3A-4242-AD2E-5B8D5B92E18F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BA9811-DA50-48C3-8C14-B4EC08F9475F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BA9811-DA50-48C3-8C14-B4EC08F9475F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BA9811-DA50-48C3-8C14-B4EC08F9475F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BA9811-DA50-48C3-8C14-B4EC08F9475F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
