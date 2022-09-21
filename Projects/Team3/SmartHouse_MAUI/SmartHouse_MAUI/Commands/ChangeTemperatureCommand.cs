@@ -30,7 +30,7 @@ namespace SmartHouse_MAU.Commands
         {
             if (CanExecute(parameter))
             {
-                _houseViewModel.ChangeTemperature();
+	 _houseViewModel.MonitoringIndicators();
                 // _houseViewModel.Temperature = 100;// rnd.Next(-50, 50);
             }
         }

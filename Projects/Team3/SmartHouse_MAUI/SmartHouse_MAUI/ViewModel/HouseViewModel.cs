@@ -14,7 +14,8 @@ namespace SmartHouse_MAU.ViewModel
     internal class HouseViewModel : INotifyPropertyChanged
     {
         private House _house;
-        public ICommand ChangeTemper { get; set; }
+       // public ICommand ChangeTemper { get; set; }
+        public ICommand MonitorIndicators { get; set; }
         public ICommand Run { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,8 +23,9 @@ namespace SmartHouse_MAU.ViewModel
         {
             _house = new House();
            // ChangeTemper = new ChangeTemperatureCommand(this); // create command
-            ChangeTemper = new Command(ChangeTemperature); // create command
-            Run = new Command(RunHouse);// create command
+           // ChangeTemper = new Command(ChangeTemperature); // create command
+             MonitorIndicators = new Command(MonitoringIndicators); // create command
+Run = new Command(RunHouse);// create command
         }
         public int Temperature
         {
@@ -85,16 +87,96 @@ namespace SmartHouse_MAU.ViewModel
                 }
             }
         }
+        #region Properties  MotionSensor an LAMP
+        
+        public int Lux
+        {
+            get => _house.Lux;
+            set
+            {
+               _house.Lux = value;
+                OnPropertyChanged(nameof(Lux));
+               
+            }
+        }
+
+        public bool IsMoving
+        {
+            get => _house.IsMoving;
+            set
+            {
+               _house.IsMoving = value;
+               OnPropertyChanged(nameof(IsMoving));
+           
+            }
+        }
+
+        public string InfoWorkingLamp
+        {
+            get => _house.Lamp.InfoWorkingLamp;
+            set
+            {
+                if (_house.Lamp.InfoWorkingLamp != value)
+                {
+                    _house.Lamp.InfoWorkingLamp = value;
+                    OnPropertyChanged(nameof(InfoWorkingLamp));
+            }
+        }
+        }
+
+        public bool OnLamp
+        {
+            get => _house.Lamp.On;
+            set
+            {
+                if (_house.Lamp.On != value)
+                {
+                    _house.Lamp.Power();
+                    OnPropertyChanged(nameof(OnLamp));
+
+                }
+            }
+        }
+        #endregion
+
         Random rnd = new Random();
-        public void ChangeTemperature() // will call by  command
+        public void MonitoringIndicators() // will call by  command
         {
             int randTemp = rnd.Next(-40, 40);
-            Debug.WriteLine($"\n\n>>>>>>>>>>>>>>>> In method ChangeTemper OuteTemp is {randTemp}");
+            Debug.WriteLine($"\n\n>>>>>>>>>>>>>>>> In method MonitoringIndicators:\n OuteTemp is {randTemp}");
             OuterTemperature = randTemp;
 
             // Info = ""; 
             Info += $"___OuteTemp is {randTemp}__\n\r";
             Temperature = randTemp; // -15;
+
+            //testing lamp and motionsensor!
+            if (_house.Lamp.On) 
+                _house.Lamp.Power();
+            //change ragen
+            int lux = rnd.Next(0, 70);
+            bool  moving = Convert.ToBoolean(rnd.Next(0, 2));
+
+            Debug.WriteLine($"House LUX: {lux}. Is moving: {moving}");
+            IsMoving = moving;
+            Lux = lux;
+            if (moving && Lux<50) {
+                InfoWorkingLamp = $"Somebody come in house.\n\rWelcome HOME! :) \n\rLamp ON, because a little dark! \n\rLux: {Lux}.\n\r";
+            }
+            else if (moving && Lux > 50)
+            {
+                InfoWorkingLamp = $"Somebody come in house.\n\rWelcome HOME! :) \n\rLamp OFF, because lighting is enough! \n\rLux: {Lux}.\n\r";
+            }
+            else if (!moving && Lux > 50)
+            {
+                InfoWorkingLamp = $"There is no one at home... \n\rLamp OFF, because lighting is enough! \n\rLux: {Lux}.\n\r";
+            }
+            else 
+            {
+                InfoWorkingLamp = $"There is no one at home... \n\rLamp OFF.\n\r";
+            }
+        
+
 
         }
         public void RunHouse()

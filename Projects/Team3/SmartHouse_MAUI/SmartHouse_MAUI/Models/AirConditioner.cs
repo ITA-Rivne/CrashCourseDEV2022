@@ -31,7 +31,7 @@ namespace SmartHouse_MAU.Models
         //}
         public void Handler(object o, EventArgs e)
         {
-            if (IsOn())
+            if (On)
             {
                 House h = o as House;
                 NeedsRegimeEventArgs ne = e as NeedsRegimeEventArgs;
@@ -40,18 +40,18 @@ namespace SmartHouse_MAU.Models
                 {
                     case NeedsRegime.NeedCool:
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air cooling");
-                        Info += $"Now {h.Temperature} C\u00b0 --> Air cooling\n\r";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Air cooling\n";
                         Mode = AirCondMode.Cool;
                         h.Temperature -= _delta;
                         break;
                     case NeedsRegime.NeedWarm:
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air heating");
-                        Info += $"Now {h.Temperature} C\u00b0 --> Air heating\n\r";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Air heating\n";
                         Mode = AirCondMode.Warm;
                         h.Temperature += _delta;
                         break;
                     case NeedsRegime.NeedOutFire:
-                        Info += $"Now {h.Temperature} C\u00b0 --> Dangerous(> 50)\n\r";
+                        Info += $"Now {h.Temperature} C\u00b0 --> Dangerous(> 50)\n";
                         Debug.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Dangerous of fire!!!!");
                         Mode = AirCondMode.Cool;
                         break;
