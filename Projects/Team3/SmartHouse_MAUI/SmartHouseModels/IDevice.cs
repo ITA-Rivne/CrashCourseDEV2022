@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    interface IDevice
+   public interface IDevice
     {
         void Power();
     }

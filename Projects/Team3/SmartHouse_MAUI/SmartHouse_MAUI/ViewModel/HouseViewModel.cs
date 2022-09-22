@@ -1,5 +1,5 @@
 ﻿using SmartHouse_MAU.Commands;
-using SmartHouse_MAU.Models;
+using SmartHouseModels; // from other project  (dll)
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+//usi
 
 namespace SmartHouse_MAU.ViewModel
 {
@@ -184,6 +185,7 @@ Run = new Command(RunHouse);// create command
             OuterTemperature = 20;
             Temperature = OuterTemperature;
             Info = "OPENED ";
+            // !!!!!! add some code Lamp
         }
         public void OnPropertyChanged(string prop = "")
         {

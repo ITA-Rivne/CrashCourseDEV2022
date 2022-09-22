@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    abstract class Device : IDevice
+   public abstract class Device : IDevice
     {
         int _id = ++lastId; //id
         static int lastId = 0;//count devices in house

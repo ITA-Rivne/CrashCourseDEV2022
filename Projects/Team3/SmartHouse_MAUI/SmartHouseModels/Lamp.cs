@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    class Lamp : Device
+   public class Lamp : Device
     {
         private int _lux;
 

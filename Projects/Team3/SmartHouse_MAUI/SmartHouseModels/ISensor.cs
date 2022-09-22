@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models 
+namespace SmartHouseModels
 {
-    interface ISensor
+   public interface ISensor
     {
         int Value { get; set; }
         event EventHandler ValueOutOfRange;// ----> list methods

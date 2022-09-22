@@ -25,22 +25,21 @@
             </Grid.ColumnDefinitions>
             <!--<BoxView Color="CadetBlue" Grid.Column="2" Grid.RowSpan="4"></BoxView>-->
 
-            <!--<Label
+            <Label
                 Grid.Row="0" Grid.Column="0"
-                Text="{Binding AirConditionerMode, StringFormat='Air  Condition : {0}'}"    DOES NOT WORK BINDING ???
-                FontSize="24"
+                Text="{Binding AirConditionerMode, StringFormat='Air  Condition : {0}'}"    
                 HorizontalOptions="Fill" 
                 BackgroundColor="{StaticResource Key=Blue100Accent}"
                 TextColor="White"
-               />-->
-            <Label
+               />
+            <!--<Label
                 Grid.Row="0" Grid.Column="0"
                 Text="Air Conditioner"
                 FontSize="24"
                 HorizontalOptions="Fill" 
                 BackgroundColor="{StaticResource Key=Blue100Accent}"
                 TextColor="White"
-               />
+               />-->
 
             <!--<Border StrokeThickness="4" BackgroundColor="Gray"   Grid.Row="0" Grid.Column="2">-->
             <Label

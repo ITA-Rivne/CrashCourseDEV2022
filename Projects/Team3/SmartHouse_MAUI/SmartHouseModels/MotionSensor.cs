@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    class MotionSensor : ISensor
+  public  class MotionSensor : ISensor
     {
         private const int defaultLUX = 50;
         private bool _isMoving = false;
