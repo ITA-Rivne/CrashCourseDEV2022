@@ -15,7 +15,13 @@ namespace SmartHouseModels
         public bool IsMoving
         {
             get => _isMoving;
-            set => _isMoving = value;
+            set { 
+            _isMoving = value;
+                //if (IsMoving && _lux < defaultLUX)
+                //{
+                //    ValueOutOfRange?.Invoke(House, null);
+                //}
+            }
         }
 
         public House House { get; set;}

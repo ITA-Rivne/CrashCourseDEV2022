@@ -15,7 +15,7 @@ namespace SmartHouseModels
         {
             _lux = lux;
         }
-    string _infoWorkingLamp = "";
+        string _infoWorkingLamp = "";
         public string InfoWorkingLamp
         {
             get => _infoWorkingLamp;
@@ -32,6 +32,8 @@ namespace SmartHouseModels
 
             }
             else {
+                House h = o as House;
+                h.Lamp.Power();
                 _infoWorkingLamp = "Lamp OFF!";
                 Debug.WriteLine("Lamp OFF!");
             }

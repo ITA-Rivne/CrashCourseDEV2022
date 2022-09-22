@@ -71,6 +71,7 @@ namespace SmartHouseModels
             MotionSensor = new MotionSensor(this);
             _lux = startLUX;
             MotionSensor.ValueOutOfRange += Lamp.Handler;
+            if (Lamp.On) Lamp.Power();
         }
         //public void Run()
         //{
