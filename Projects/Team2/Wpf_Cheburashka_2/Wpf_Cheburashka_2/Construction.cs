@@ -123,11 +123,11 @@ namespace Wpf_Cheburashka_2
 
             Thread.Sleep(3000);
 
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-            {
-                mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/girl.png"));
-            }));
-            girl.Send("Я Галя");
+          Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+           {
+               mainwindow.image.Source = BitmapFrame.Create(new Uri(@"pack://application:,,,/images/girl.png"));
+           }));
+           girl.Send("Я Галя");
 
             Refresh(((Label)((Grid)mainwindow.Content).Children[7]));
             Refresh(((Image)((Grid)mainwindow.Content).Children[6]));
