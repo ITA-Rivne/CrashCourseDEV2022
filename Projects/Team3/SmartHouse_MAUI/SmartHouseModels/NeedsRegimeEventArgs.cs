@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    enum NeedsRegime { Normal, NeedWarm, NeedCool, NeedOutFire }
+    public enum NeedsRegime { Normal, NeedWarm, NeedCool, NeedOutFire }
 
-    class NeedsRegimeEventArgs : EventArgs
+    public class NeedsRegimeEventArgs : EventArgs
     {
         public NeedsRegime NeedsRegime { get; set; }
     }

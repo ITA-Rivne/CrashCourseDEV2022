@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 using System.ComponentModel;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    /*public*/
-    class House
+    public class House
     {
 
         private int _temperature;

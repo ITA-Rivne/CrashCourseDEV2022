@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse_MAU.Models
+namespace SmartHouseModels
 {
-    class TemperatureSensor : ISensor
+   public class TemperatureSensor : ISensor
     {
         private const int defaultTemperature = 18;
         private const int defaultMaxTemperature = 23;
