@@ -17,6 +17,9 @@ namespace SmartHouseModels
         int _desireMaxTemperature;
         int _dangerousFireTemperature;
 
+        public int DesireMinTemperature => _desireMinTemperature;
+        public int DesireMaxTemperature => _desireMaxTemperature;
+        
         public House House;
         public TemperatureSensor(House house,
             int minDesireTemp = defaultTemperature,
