@@ -3,7 +3,7 @@ namespace TestProjectSmartHouse
 {
     public class UnitTestSmartHouseModel
     {
-#region Test_House_Temperature
+        #region Test_House_Temperature
         [Fact]
         public void TestAirCondionerOn()
         {
@@ -62,21 +62,58 @@ namespace TestProjectSmartHouse
             Assert.Equal(AirCondMode.Warm, airConditionerMode);
 
         }
-   
+
         [Theory]
         [InlineData(0)]
         [InlineData(10)]
-        [InlineData(15)] 
+        [InlineData(15)]
         public void TestAirConditionModeFromColdReturnsWarm(int temperature)
         {
             House house = new House();
-            house.Temperature = temperature; 
-            
+            house.Temperature = temperature;
+
             AirCondMode airConditionerMode = house.AirConditioner.Mode;
-            Assert.Equal( AirCondMode.Warm, airConditionerMode);
+            Assert.Equal(AirCondMode.Warm, airConditionerMode);
 
         }
-        
+
+
+        #endregion TestHouseTemperature
+        #region TestHouseLamp
+        [Fact]
+        public void TestLuxAndNotMotionReturnLampOff()
+        {
+            House house = new House(20, 100);
+            house.MotionSensor.IsMoving = false;
+            Assert.False(house.Lamp.On);
+
+        }
+        [Fact]
+        public void TestLowLuxAndNotMotionReturnLampOff()
+        {
+            House house = new House(20, 30);
+            house.MotionSensor.IsMoving = false;
+            Assert.False(house.Lamp.On);
+
+        }
+        [Fact]
+        public void TestLuxAndMotionReturnLampOff()
+        {
+            House house = new House(20, 100);
+            house.MotionSensor.IsMoving = true;
+            Assert.False(house.Lamp.On);
+
+        }
+        [Fact]
+        public void TestLowLuxAndMotionReturnLampOn()
+        {
+            House house = new House(20, 30);
+            house.MotionSensor.IsMoving = true;
+            house.Lux = 10;
+            Assert.True(house.Lamp.On);
+
+        }
+
+        #endregion TestHouseLamp
     }
-    #endregion TestHouseTemperature
 }
