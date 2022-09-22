@@ -76,6 +76,7 @@
     <Compile Include="Construction.cs" />
     <Compile Include="Crocodile.cs" />
     <Compile Include="Dog.cs" />
+    <Compile Include="GetWorkTest.cs" />
     <Compile Include="Giraffe.cs" />
     <Compile Include="Girl.cs" />
     <Compile Include="IMediator.cs" />
