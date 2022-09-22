@@ -66,7 +66,7 @@ namespace Cheburaska_Pattern
                 a = 0;
             }
             this.count = a;
-            Say();
+            //Say();
             return a;
         }
 
