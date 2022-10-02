@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse_MVC", "SmartHouse_MVC\SmartHouse_MVC.csproj", "{6BE8995B-4943-40EC-BDB8-96B02A5A7161}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{013479BA-2B1D-42E8-BAD2-A5A50F972771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6BE8995B-4943-40EC-BDB8-96B02A5A7161}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BE8995B-4943-40EC-BDB8-96B02A5A7161}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BE8995B-4943-40EC-BDB8-96B02A5A7161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{013479BA-2B1D-42E8-BAD2-A5A50F972771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013479BA-2B1D-42E8-BAD2-A5A50F972771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013479BA-2B1D-42E8-BAD2-A5A50F972771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013479BA-2B1D-42E8-BAD2-A5A50F972771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
