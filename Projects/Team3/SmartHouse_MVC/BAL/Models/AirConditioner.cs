@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BAL.Models
+
+{
+   public class AirConditioner : Device
+    {
+
+        private int _delta;
+        public AirConditioner(int delta = 1)
+        {
+            this._delta = delta;
+        }
+
+        public void Handler(object o, EventArgs e)
+        {
+            if (IsOn())
+            {
+                House h = o as House;
+                NeedsRegimeEventArgs ne = e as NeedsRegimeEventArgs;
+                switch (ne.NeedsRegime)
+                {
+                    case NeedsRegime.NeedCool:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air cooling");
+                        h.Temperature -= _delta;
+                        break;
+                    case NeedsRegime.NeedWarm:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Air heating");
+                        h.Temperature += _delta;
+                        break;
+                    case NeedsRegime.NeedOutFire:
+                        Console.WriteLine($"\t\tNow {h.Temperature} C\u00b0 --> Dangerous of fire!!!!");
+                        break;
+                    default:
+                        break;
+                };
+            }
+            else
+                Console.WriteLine(">>>>>>>>>>>>>>>>>> Must On AirCondition >>>>>>>");
+
+        }
+    }
+}
