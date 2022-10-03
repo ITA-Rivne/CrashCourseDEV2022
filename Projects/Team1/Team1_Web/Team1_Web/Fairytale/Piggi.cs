@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Team1_Web.Fairytale
 {
-    public class Piggi : IAnimal, IPiggi, INotifyPropertyChanged
+    public class Piggi : IAnimal, IPiggi
     {
         private int id;
         public int Id
@@ -58,7 +58,7 @@ namespace Team1_Web.Fairytale
             set { speed = value; }
         }
 
-        public Building myHouse;
+        public Building MyHouse { get; set; }
 
         public enum Status
         {
@@ -74,14 +74,10 @@ namespace Team1_Web.Fairytale
             this.id = id;
             this._name = name;
             Random r = new Random(smartIndex);
-            this.smart = r.Next(1, 10)* smartIndex;
+            this.smart = r.Next(1, 10) * smartIndex;
             this.power = r.Next(1, 10);
             this.speed = r.Next(1, 10);
-            
-            Console.WriteLine("Я " + name);
-            Console.WriteLine($"Моя хитрість = {this.smart}, швидкість = {this.speed}  сила = {this.power} \n");
-            
-
+            MyHouse = new Building($"", new Material(""), new Material(""), new Material(""));
         }
 
         public void buildHouse()
@@ -95,7 +91,7 @@ namespace Team1_Web.Fairytale
             var roof = new Material("Солома");
             roof.Strength = speed * 10;
 
-            myHouse = new Building($"Дім {_name}a", _base, wall, roof);
+            MyHouse = new Building($"Дім {_name}a", _base, wall, roof);
         }
 
         public bool catched(int rivalspeed)
@@ -127,11 +123,5 @@ namespace Team1_Web.Fairytale
 
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

@@ -25,9 +25,10 @@ namespace Team1_Web.Fairytale
         }
 
 
-        public Material(string name)
+        public Material(string name, int strength = 0)
         {
             this.name = name;
+            this.strength= strength;
         }     
 
         public void GenerateStrength(int step)

@@ -9,22 +9,9 @@ namespace Team1_Web.Models
 {
     public class HomeModel
     {
-        private string displayText;
-        private string actionLog;
-        private string piggyName;
-
-        private Piggi? selectedPiggi { get; set; }
         public List<Piggi> PigletsList { get; set; }
 
         public Wolf HeroWolf { get; set; }
-
-        public string DisplayText { get; set; }
-
-        public string ActionLog { get; set; }
-
-        public string PiggyName { get; set; }
-
-        public Piggi? SelectedPiggi { get; set; }
 
         public HomeModel()
         {
@@ -99,9 +86,9 @@ namespace Team1_Web.Models
             {
                 model.ResponseCode = 0;
 
-                piggi.myHouse.DamageBuilding(HeroWolf.strenght);
+                piggi.MyHouse.DamageBuilding(HeroWolf.strenght);
                 //якщо будинок не вцілів
-                if (!piggi.myHouse.buildingStatus)
+                if (!piggi.MyHouse.buildingStatus)
                 {
                     if (piggi.catched(HeroWolf.speed))
                     {
@@ -116,41 +103,7 @@ namespace Team1_Web.Models
                 model.ResponseMessage = "Piggy not found";
             }                
 
-            return model;
-
-            //StringBuilder log = new StringBuilder();
-
-
-            //int deadPiggiCount = 0;
-            //foreach (var piggi in PigletsList)
-            //{
-            //    log.Append(HeroWolf.destructionBuilding(piggi.myHouse));
-
-            //    if (!piggi.myHouse.buildingStatus)
-            //        if (piggi.catched(HeroWolf.speed))
-            //        {
-            //            deadPiggiCount++;
-            //            log.Append($"Я з'їв {piggi.Name} \n");
-            //        }
-            //        else
-            //            log.Append($"{piggi.Name} втік\n");
-
-            //}
-            ////      - намагається обдурити, якщо так, то їсть та йде до наступного поросяти
-            ////      - не вийшло розвалити та обдурити - порося вижило, йде до наступного поросяти
-            ////      - пройшов всіх, або втік в ліс, або когось зжер(
-
-            //log.Append("---------------------------------------------------------------\n");
-
-            //PunisherPiggi superPiggi = new PunisherPiggi("Cупер порося");
-            //log.Append(superPiggi.GetMesssage());
-
-            //string status = superPiggi.punishTheWolf(HeroWolf, deadPiggiCount);
-            //log.Append(status);            
-
-            //return log.ToString();
-
-
+            return model;        
 
         }
 

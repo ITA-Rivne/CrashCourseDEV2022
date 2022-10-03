@@ -35,24 +35,24 @@
                          </div>
                     </div>
                         <div class="flip-card-back" id="house_@item.Id">
-                        @if (@item.myHouse.Name.Contains("Ніф-Ніф"))
+                        @if (@item.MyHouse.Name.Contains("Ніф-Ніф"))
                         {
                             <img src="/images/house_nif-nif.jpg" class="card-img-top" alt="house">
                         }
-                        else if (@item.myHouse.Name.Contains("Наф-Наф"))
+                        else if (@item.MyHouse.Name.Contains("Наф-Наф"))
                         {
                              <img src="/images/house_naf-naf.jpg" class="card-img-top" alt="house">
                         }
-                        else if (@item.myHouse.Name.Contains("Нуф-Нуф"))
+                        else if (@item.MyHouse.Name.Contains("Нуф-Нуф"))
                         {
                             <img src="/images/house_nuf-nuf.jpg" class="card-img-top" alt="house">
                         }
                          <div class="card-body">
-                            <h5 class="card-title">@item.myHouse.Name</h5>
+                            <h5 class="card-title">@item.MyHouse.Name</h5>
                         </div>
                         <div class="unit-card piggy clearfix">
                             <div class="one-first no-border">
-                                 <div class="stat">@item.myHouse.BuildingSolidity</div>
+                                 <div class="stat">@item.MyHouse.BuildingSolidity</div>
                                  <div class="stat-value">Solidity</div>
                             </div>
 

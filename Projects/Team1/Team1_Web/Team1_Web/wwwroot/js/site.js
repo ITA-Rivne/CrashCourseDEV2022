@@ -15,17 +15,17 @@
                     var selectorHouseId = '#house_' + piggy.Id;
                     var selectorPiggyId = '#piggy_' + piggy.Id;
                     const cardHouse = document.querySelector(selectorHouseId);
-                    if (piggy.myHouse.buildingStatus == false)
+                    if (piggy.MyHouse.buildingStatus == false)
                     {                        
                         cardHouse.querySelector('.card-title').textContent = 'Destroyed'                        
                     }
-                    cardHouse.querySelector('.stat').textContent = piggy.myHouse.BuildingSolidity; 
+                    cardHouse.querySelector('.stat').textContent = piggy.MyHouse.BuildingSolidity; 
 
                     const cardPiggy = document.querySelector(selectorPiggyId);
                     if (piggy.status == 2) {
                         cardPiggy.querySelector('.card-title').textContent = 'Dead'
                     }
-                    cardPiggy.querySelector('.stat').textContent = piggy.myHouse.BuildingSolidity; 
+                    cardPiggy.querySelector('.stat').textContent = piggy.MyHouse.BuildingSolidity; 
                 }
                 else {
                     alert(response.ResponseMessage);
