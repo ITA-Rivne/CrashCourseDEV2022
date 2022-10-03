@@ -9,7 +9,9 @@ namespace BAL.Models
    public class Lamp:Device
     {
         private int _lux;
-        
+       
+
+
         public Lamp(int lux) {
             this._lux = lux;    
         }

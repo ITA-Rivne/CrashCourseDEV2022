@@ -4,61 +4,71 @@
 }
 
 
-<div class="row bg-image" style="background: url('/img/fon.jpg') no-repeat;">
-        <div class="col-5">
-            <div class="card border border-primary" >
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Кондиціонер</h5>
-                    <p class="card-text">
-                        Current temperature : @Model.House.Temperature.ToString() 
-                        </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            <form method="get" asp-action="Monitoring" asp-controller="Home" id="temperature">
+<div class="row bg-image h-100" style="background: url('/img/fon.jpg') no-repeat;">
+    <div class="col-5">
+        <div class="card border border-primary w-100 h-80">
+            <img src="/img/AirConditioner1.png"  class="card-img-center"   alt="...">
+            <div class="card-body mx-auto">
+                <h5 class="card-title">Air Conditioner</h5>
+                <p class="card-text">
+                    Current temperature : @Model.House.Temperature.ToString()
+                </p>
+            </div>
+             <form method="get" asp-action="MonitoringTemperature" asp-controller="Home" id="temperature">
                 <label for="temperature" class="form-label">Temperature</label>
-                <input type="number" min="0" max="100"  name="temperature" class="form-control" id="temperature" value="@Model.House.Temperature">
-                <button class="btn btn-primary" type="submit" >change</button>
-           </form>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
+                <input type="number" min="0" max="100" name="temperature" class="form-control" id="temperature" value="@Model.House.Temperature">
+                <button class="btn btn-primary" type="submit">change</button>
+            </form>
+  @*          <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>*@
+        </div>
+
+    </div>
+    <div class="col-2">
+    </div>
+    <div class="col-5">
+        <div class="card border border-primary w-100 h-80">
+            @if (Model.House.Lamp.IsOn()) {
+                <img src="/img/LightON.png" class="card-img-top mx-auto h-70" style="width:250px; height:280px" alt="...">
+            }else{
+                <img src="/img/LightOFF.png" class="card-img-top mx-auto h-70" style="width:250px; height:280px"  alt="...">
+            }
+            
+            <div class="card-body  mx-auto">
+                <h5 class="card-title">Lamp</h5>
+                <p class="card-text"> @Model.House.InfoLightMoving </p>
             </div>
           
-        </div>
-        <div class="col-2">
-            
-        </div>
-        <div class="col-5">
-            <div class="card border border-primary">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Лампа</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <form method="get" asp-action="MonitoringLightMoving" asp-controller="Home">
+                <div class="form-number">
+                    <label for="lamp" class="form-label">Lux</label>
+                    <input type="number" min="0" max="100" name="lux" class="form-control" id="lamp" value="@Model.House.Lux">
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                <div class="form-check">
+                    @if (@Model.House.IsMoving==true)
+                    {
+                    <input class="form-check-input" name="ismoving" type="checkbox" value="true" id="moving" checked>
+                    <input name="ismoving" type="hidden" value="false" />
+                    }else{
+                        <input class="form-check-input" name="ismoving" type="checkbox" value="true" id="moving">
+                        <input name="ismoving" type="hidden" value="false" />
+                    }
+                    
+                    <label class="form-check-label" for="moving">
+                        Is moving?
+                    </label>
                 </div>
-            </div>
+                <button class="btn btn-primary" type="submit">change</button>
+            </form>
+@*            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>*@
         </div>
     </div>
-    <script>
-    function Test()
-    {
-        //var  doc = document.getElementById("")
-        @Model.House.Temperature =0;
-    }
-    </script>
+</div>
+
 
 

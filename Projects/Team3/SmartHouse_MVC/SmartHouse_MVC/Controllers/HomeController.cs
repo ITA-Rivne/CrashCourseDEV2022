@@ -23,6 +23,7 @@ namespace SmartHouse_MVC.Controllers
             // added
             //HouseModel hModel = new HouseModel();
             //return View(_model);
+
             return View(HModel);
         }
 
@@ -36,12 +37,19 @@ namespace SmartHouse_MVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        [HttpGet]
-        public IActionResult Monitoring(int temperature = 20)
+      //  [HttpGet]
+        public IActionResult MonitoringTemperature(int temperature = 20)
         {
             HModel.House.Temperature = temperature; // !!!!!
 
             return View("Index",HModel);
+        }
+        public IActionResult MonitoringLightMoving(bool ismoving=false, int lux=50)
+        {   HModel.House.IsMoving = ismoving;
+            HModel.House.Lux = lux;
+            
+            HModel.House.MonitoringIndicators(ismoving, lux);
+            return View("Index", HModel);
         }
     }
 }
