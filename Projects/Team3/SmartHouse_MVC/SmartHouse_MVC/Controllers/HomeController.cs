@@ -7,7 +7,7 @@ namespace SmartHouse_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private HouseModel _model;   
+        public HouseModel HModel { get; set; } = new HouseModel();   
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -17,9 +17,9 @@ namespace SmartHouse_MVC.Controllers
         public IActionResult Index()
         {
             // added
-            HouseModel hModel = new HouseModel();
+            //HouseModel hModel = new HouseModel();
             //return View(_model);
-            return View(hModel);
+            return View(HModel);
         }
 
         public IActionResult Privacy()
@@ -31,6 +31,13 @@ namespace SmartHouse_MVC.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
+        public IActionResult Monitoring(int temperature = 20)
+        {
+            HModel.House.Temperature = 0;// temperature; // !!!!!
+            
+            return View(HModel);
         }
     }
 }
