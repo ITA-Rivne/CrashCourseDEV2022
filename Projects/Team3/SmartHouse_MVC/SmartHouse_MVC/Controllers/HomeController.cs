@@ -7,15 +7,19 @@ namespace SmartHouse_MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private HouseModel _model;   
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            //_model = new HouseModel();  
         }
 
         public IActionResult Index()
         {
-            return View();
+            // added
+            HouseModel hModel = new HouseModel();
+            //return View(_model);
+            return View(hModel);
         }
 
         public IActionResult Privacy()
