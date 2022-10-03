@@ -61,7 +61,7 @@ namespace BAL.Models
             _lux = startLUX;
             MotionSensor.ValueOutOfRange += Lamp.Handler;
             if (Lamp.IsOn()) Lamp.Power();
-           // MonitoringIndicators(IsMoving,Lux);
+            MonitoringIndicators(IsMoving,Lux);
         }
         //public void Run()
         //{
