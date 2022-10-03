@@ -4,6 +4,6 @@ namespace SmartHouse_MVC.Models
 {
     public class HouseModel
     {
-        public House House { get; set; } = new House(44);
+        public House House { get; set; } = new House();
     }
 }

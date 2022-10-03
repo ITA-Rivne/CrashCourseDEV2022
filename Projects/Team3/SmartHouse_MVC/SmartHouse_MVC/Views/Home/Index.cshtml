@@ -2,63 +2,95 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
+@Html.CheckBoxFor(m => m.House.IsMoving);
 
 <div class="row bg-image" style="background: url('/img/fon.jpg') no-repeat;">
-        <div class="col-5">
-            <div class="card border border-primary" >
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Кондиціонер</h5>
-                    <p class="card-text">
-                        Current temperature : @Model.House.Temperature.ToString() 
-                        </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            <form method="get" asp-action="Monitoring" asp-controller="Home" id="temperature">
-                <label for="temperature" class="form-label">Temperature</label>
-                <input type="number" min="0" max="100"  name="temperature" class="form-control" id="temperature" value="@Model.House.Temperature">
-                <button class="btn btn-primary" type="submit" >change</button>
-           </form>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
+    <div class="col-5">
+        <div class="card border border-primary">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Кондиціонер</h5>
+                <p class="card-text">
+                    Current temperature : @Model.House.Temperature.ToString()
+                </p>
             </div>
-          
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <form method="get" asp-action="MonitoringTemperature" asp-controller="Home" id="temperature">
+                <label for="temperature" class="form-label">Temperature</label>
+                <input type="number" min="0" max="100" name="temperature" class="form-control" id="temperature" value="@Model.House.Temperature">
+                <button class="btn btn-primary" type="submit">change</button>
+            </form>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
         </div>
-        <div class="col-2">
-            
-        </div>
-        <div class="col-5">
-            <div class="card border border-primary">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Лампа</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+    </div>
+    <div class="col-2">
+    </div>
+    <div class="col-5">
+        <div class="card border border-primary">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Лампа</h5>
+                <p class="card-text"> @Model.House.InfoLightMoving </p>
+            </div>
+            @* <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            </ul>*@
+            <form method="get" asp-action="MonitoringLightMoving" asp-controller="Home">
+                <div class="form-number">
+                    <label for="lamp" class="form-label">Lux</label>
+                    <input type="number" min="0" max="100" name="lux" class="form-control" id="lamp" value="@Model.House.Lux">
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                <div class="form-check">
+                    @if (@Model.House.IsMoving==true)
+                    {
+                    <input class="form-check-input" name="ismoving" type="checkbox" value="true" id="moving" checked>
+                    <input name="ismoving" type="hidden" value="false" />
+                    }else{
+                        <input class="form-check-input" name="ismoving" type="checkbox" value="true" id="moving">
+                        <input name="ismoving" type="hidden" value="false" />
+                    }
+                    
+                    <label class="form-check-label" for="moving">
+                        Is moving?
+                    </label>
                 </div>
+                <button class="btn btn-primary" type="submit">change</button>
+            </form>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
             </div>
         </div>
     </div>
-    <script>
-    function Test()
+</div>
+
+    <script  >
+
+        protected void SubmitBtn_Click(object sender, EventArgs e)
     {
-        //var  doc = document.getElementById("")
-        @Model.House.Temperature =0;
+        if (Basketball.Checked) {
+            // You like basketball
+        }
+
+        if (Football.Checked) {
+            // You like football
+        }
+
+        if (Soccer.Checked) {
+            // You like soccer
+        }
+
     }
-    </script>
+</script>
 
 
