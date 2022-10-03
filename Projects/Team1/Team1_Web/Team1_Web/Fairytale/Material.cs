@@ -35,6 +35,21 @@ namespace Team1_Web.Fairytale
             this.strength = new Random().Next(1, 100) * step + 1;
         }
 
+        public int Damage(int power)
+        {
+            if (strength >= power)
+            {
+                strength -= power;
+                power = 0;
+            }
+            else
+            {
+                power -= strength;
+                strength = 0;
+            }
+            return power;
+        }
+
         public override string ToString()
         {
             return $"Матеріал {this.name}  має міцність {this.strength}";                   

@@ -11,6 +11,13 @@ namespace Team1_Web.Fairytale
 {
     public class Piggi : IAnimal, IPiggi, INotifyPropertyChanged
     {
+        private int id;
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         //public string Name { get; set; }
         private string _name;
 
@@ -53,12 +60,18 @@ namespace Team1_Web.Fairytale
 
         public Building myHouse;
 
-        bool died = false;
-        bool vtik = false;
-        int BaseDistance;        
-
-        public Piggi(String name, int smartIndex = 1)
+        public enum Status
         {
+            Alive = 1,
+            Dead = 2,
+            Escape = 3
+        }
+
+        public Status status = Status.Alive;
+
+        public Piggi(int id, String name, int smartIndex = 1)
+        {
+            this.id = id;
             this._name = name;
             Random r = new Random(smartIndex);
             this.smart = r.Next(1, 10)* smartIndex;
@@ -88,9 +101,15 @@ namespace Team1_Web.Fairytale
         public bool catched(int rivalspeed)
         {
             if (rivalspeed > speed)
+            {
+                status = Status.Dead;
                 return true;
+            }
             else
+            {
+                status = Status.Escape;
                 return false;
+            }
         }
 
         public void funny()

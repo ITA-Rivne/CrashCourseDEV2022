@@ -11,5 +11,6 @@ namespace Team1_Web.Fairytale
         int Strength { get; set; }
 
         string ToString();
+        int Damage(int power);
     }
 }

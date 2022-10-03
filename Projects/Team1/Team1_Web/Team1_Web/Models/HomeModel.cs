@@ -2,6 +2,8 @@
 using System.Net.NetworkInformation;
 using System.Text;
 using Team1_Web.Fairytale;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Team1_Web.Models
 {
@@ -71,9 +73,9 @@ namespace Team1_Web.Models
             // створити по одному
             PigletsList = new List<Piggi>()
             {
-                new Piggi("Ніф-Ніф", 1),
-                new Piggi("Наф-Наф", 2),
-                new Piggi("Нуф-Нуф", 3)
+                new Piggi(1, "Ніф-Ніф", 1),
+                new Piggi(2, "Наф-Наф", 2),
+                new Piggi(3, "Нуф-Нуф", 3)
             };
 
             // 2. Будуємо будинки - вибір матеріалів випадковий, в залежності від скілів поросят
@@ -87,40 +89,66 @@ namespace Team1_Web.Models
             #endregion
         }
 
-        public string StartFairyTale()
+        public JsonResponseViewModel WolfAtackPiggy(int piggyId)
         {
-           
-            StringBuilder log = new StringBuilder();
+            //      - дихає на будинок скільки є сил, якщо розвалив, то їсть 
 
-            //      - дихає на будинок скільки є сил, якщо розвалив, то їсть та йде до наступного поросяти
-            int deadPiggiCount = 0;
-            foreach (var piggi in PigletsList)
+            var piggi = PigletsList.Where(d => d.Id.Equals(piggyId)).FirstOrDefault();
+            JsonResponseViewModel model = new JsonResponseViewModel();
+            if (piggi != null)
             {
-                log.Append(HeroWolf.destructionBuilding(piggi.myHouse));
+                model.ResponseCode = 0;
 
+                piggi.myHouse.DamageBuilding(HeroWolf.strenght);
+                //якщо будинок не вцілів
                 if (!piggi.myHouse.buildingStatus)
+                {
                     if (piggi.catched(HeroWolf.speed))
                     {
-                        deadPiggiCount++;
-                        log.Append($"Я з'їв {piggi.Name} \n");
-                    }
-                    else
-                        log.Append($"{piggi.Name} втік\n");
-
+                        HeroWolf.deadPiggiCount++;
+                    };
+                }
+                model.ResponseMessage = JsonConvert.SerializeObject(piggi);
             }
-            //      - намагається обдурити, якщо так, то їсть та йде до наступного поросяти
-            //      - не вийшло розвалити та обдурити - порося вижило, йде до наступного поросяти
-            //      - пройшов всіх, або втік в ліс, або когось зжер(
+            else
+            {
+                model.ResponseCode = 1;
+                model.ResponseMessage = "Piggy not found";
+            }                
 
-            log.Append("---------------------------------------------------------------\n");
+            return model;
 
-            PunisherPiggi superPiggi = new PunisherPiggi("Cупер порося");
-            log.Append(superPiggi.GetMesssage());
+            //StringBuilder log = new StringBuilder();
 
-            string status = superPiggi.punishTheWolf(HeroWolf, deadPiggiCount);
-            log.Append(status);            
 
-            return log.ToString();
+            //int deadPiggiCount = 0;
+            //foreach (var piggi in PigletsList)
+            //{
+            //    log.Append(HeroWolf.destructionBuilding(piggi.myHouse));
+
+            //    if (!piggi.myHouse.buildingStatus)
+            //        if (piggi.catched(HeroWolf.speed))
+            //        {
+            //            deadPiggiCount++;
+            //            log.Append($"Я з'їв {piggi.Name} \n");
+            //        }
+            //        else
+            //            log.Append($"{piggi.Name} втік\n");
+
+            //}
+            ////      - намагається обдурити, якщо так, то їсть та йде до наступного поросяти
+            ////      - не вийшло розвалити та обдурити - порося вижило, йде до наступного поросяти
+            ////      - пройшов всіх, або втік в ліс, або когось зжер(
+
+            //log.Append("---------------------------------------------------------------\n");
+
+            //PunisherPiggi superPiggi = new PunisherPiggi("Cупер порося");
+            //log.Append(superPiggi.GetMesssage());
+
+            //string status = superPiggi.punishTheWolf(HeroWolf, deadPiggiCount);
+            //log.Append(status);            
+
+            //return log.ToString();
 
 
 

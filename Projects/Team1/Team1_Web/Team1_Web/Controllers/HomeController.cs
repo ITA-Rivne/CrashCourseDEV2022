@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Team1_Web.Models;
 
@@ -25,9 +26,9 @@ namespace Team1_Web.Controllers
         }
 
         [HttpPost]
-        public string StartFairyTale(int number1, int number2)
+        public JsonResult WolfAtackPiggy(int number1, int number2, int id)
         {
-            return homeModel.StartFairyTale();
+               return Json(homeModel.WolfAtackPiggy(id));
         }
 
 

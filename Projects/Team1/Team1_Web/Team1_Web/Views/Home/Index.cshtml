@@ -13,9 +13,10 @@
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img src="/images/piggy.jpg" class="card-img-top" alt="piggy">
-                        <div class="card-body">
+                         <div class="card-body" id="piggy_@item.Id">
+                                    
                             <h5 class="card-title">@item.Name</h5>
-                        </div>
+                         </div>
                          <div class="unit-card piggy clearfix">
                                 <div class="one-third">
                                     <div class="stat">@item.Speed</div>
@@ -33,7 +34,7 @@
                                 </div>
                          </div>
                     </div>
-                    <div class="flip-card-back">
+                        <div class="flip-card-back" id="house_@item.Id">
                         @if (@item.myHouse.Name.Contains("Ніф-Ніф"))
                         {
                             <img src="/images/house_nif-nif.jpg" class="card-img-top" alt="house">
@@ -46,12 +47,12 @@
                         {
                             <img src="/images/house_nuf-nuf.jpg" class="card-img-top" alt="house">
                         }
-                        <div class="card-body">
+                         <div class="card-body">
                             <h5 class="card-title">@item.myHouse.Name</h5>
                         </div>
                         <div class="unit-card piggy clearfix">
                             <div class="one-first no-border">
-                                 <div class="stat">@item.myHouse.buildingSolidity()</div>
+                                 <div class="stat">@item.myHouse.BuildingSolidity</div>
                                  <div class="stat-value">Solidity</div>
                             </div>
 
@@ -59,14 +60,18 @@
                     </div>
                 </div>    
             </div>
-        </div>
+                    <div class="card-footer bg-transparent px-0">
+                        <button id="action_vs" data-request-url="@Url.Action("WolfAtackPiggy", "Home", new { id = @item.Id })"
+                            type="button" class="btn btn-lg btn-outline-danger mt-4 p-0" style="width: 18rem">
+                           Attack
+                       </button>
+                    </div>
+        </div>        
         }            
         </div>
     </div>
-    <div class="col-md-1 d-flex align-items-center justify-content-center">
-        <div id="action_vs" data-request-url="@Url.Action("StartFairyTale", "Home")">
-            <img src="/images/vs.png" class="mx-auto d-block w-100"  alt="piggy">
-        </div>
+    <div class="col-md-1 d-flex align-items-center justify-content-center">        
+        <img src="/images/vs.png" class="mx-auto d-block w-100"  alt="piggy">        
     </div>
     <div class="col-md-3">
         <div class="row justify-content-end">

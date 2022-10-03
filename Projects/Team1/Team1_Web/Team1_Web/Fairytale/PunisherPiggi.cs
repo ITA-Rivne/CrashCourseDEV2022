@@ -9,7 +9,7 @@ namespace Team1_Web.Fairytale
 {
     class PunisherPiggi : Piggi //супер-порося, яке карає вовка, коли він зїдає порося
     {
-        public PunisherPiggi(string name):base(name)
+        public PunisherPiggi(string name):base(1, name)
         {           
         }
 

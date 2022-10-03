@@ -20,7 +20,9 @@ namespace Team1_Web.Fairytale
 
         public int strenght;
         public int speed;
-      
+
+        public int deadPiggiCount = 0;
+
 
         public Wolf(String name, int strenghtIndex = 1)
         {
@@ -33,20 +35,6 @@ namespace Team1_Web.Fairytale
             //Console.WriteLine($"Моя сила = {this.strenght}, швидкість = {this.speed} \n");
 
         }        
-
-        public string destructionBuilding(Building house)
-        {
-            if (strenght > house.buildingSolidity())
-            {
-                house.buildingStatus = false;
-                return $"Я знищив {house.Name} \n";
-            }
-            else
-            {
-                return $"{house.Name} має міцність {house.buildingSolidity()}, мені не хватає сили {strenght} \n";                
-            }
-        
-        }
 
         public void move(int distance)
         {
