@@ -25,6 +25,30 @@ namespace RestAPI
         public Logger log = LogManager.GetCurrentClassLogger(); // for NLog
         private string JsonToken;
 
+        [OneTimeSetUp]
+        public void GetToken()
+        {
+            log.Info("Start VerifyLogin test");
+            var client = new RestClient("http://127.0.0.1/opencart/index.php?route=api/login");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            // request.AddHeader("username", "Default");
+            //  request.AddHeader("key", "lqGZVBKPYUKKJBEHPJc8TxQgH2qNsSZNNqJlTHhJY3HsRSz10YsAMw3c5BX6Xaf0xiPFeP2Z5BrMvis73iKQN7gryGvHFlrMHpcanSmfeqd0cAQTsPdXEctjhTGaxEpVXFE0AcjXYiCKuMvBOkIEVfC4icqhkETDzTNjY5nvE2egYTTvKuuVVeFyTeZrgeR5wMlgCaCmTs5lXQjMVUvUPGuIgkjpaGavRJmww5hPTGaFcrgqfRFjwrgrKMhf25yv");
+            //      request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            //      request.AddHeader("Cookie", "OCSESSID=bf91ec90aba413c4745cae7240; currency=USD; language=en-gb");
+            request.AddParameter("username", "Default");
+            request.AddParameter("key", "OnWWxLrYKYGZ75Qjv3262n2ZBZFJM4PfKZr1n4lZ2WtLFWNisIy21uzBGoIQJ8sI6D5IkaEooAPCQkNhN130i0JMlz43KdsbXtP6kF2Nbl4wSDxjaPu3l0IolVCbUSyJQ26TPZ6RwF1hsgJvEo2dtUxdhTrxQbZ4RzVO1TnXMnt0impxJjJ4uALYjsHVaEat7dYSWUFOhmsNH0HHa1fRyL7wdVpOpIgzycQFpKySPt4aQCErhNeLLp55aXjq5RWB");
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+
+            string source = response.Content;
+            dynamic data = JsonConvert.DeserializeObject(source);
+
+            JsonToken = data.api_token;
+            Console.WriteLine("api_token = " + data.api_token);
+        }
+
+
         [Test]
         public void FromPostman()
         {
@@ -83,14 +107,14 @@ namespace RestAPI
         [Test, Order(2)]
         public void ReadCart()
         {
-            log.Info("Start");
+            log.Info("Start ReadCart test");
             var client = new RestClient("http://127.0.0.1/opencart/index.php?route=api/cart/products&api_token=" + JsonToken);
-           // client.Timeout = 1;
+            client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cookie", $"OCSESSID={JsonToken}; currency=USD; language=en-gb");
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
-
+            Assert.True(response.Content.Contains("\"title\":\"Total\",\"text\""));
         }
 
         [Test]
